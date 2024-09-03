@@ -7,6 +7,8 @@ export default function Home() {
   const router = useRouter();
 
   const handleClick = (e) => {
+    console.log(e.target.value)
+    e.preventDefault()
     router.push('./Login');
   }
 
