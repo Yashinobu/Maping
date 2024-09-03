@@ -55,7 +55,7 @@ export default function Home() {
             <Head>
                 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
             </Head>
-            <main className="flex h-screen flex-col items-center bg-white p-2 text-[#5C5F5D]">
+            {!session ? <main className="flex h-screen flex-col items-center bg-white p-2 text-[#5C5F5D]">
                 <h1 className="text-[25px] mt-[100px]">Sing in to Matching App</h1>
                 <button className="flex gap-2 rounded-full border border-solid border-[#5C5F5D] px-[25px] py-[5px] w-[72%] mt-[30px]" onClick={() => signIn("google", { prompt: "select_account" })}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -91,7 +91,8 @@ export default function Home() {
                     <button className="text-[12px] text-[#007be5]">Reset password</button>
                     <div className="flex text-[12px] gap-2"><label>No account?</label><button className="text-[#007be5]">Create one</button></div>
                 </div>
-            </main>
+            </main> : <main className="flex h-screen flex-col items-center bg-white p-2 text-[#5C5F5D]"><h1 className="text-[32px]">Welcome to Login</h1></main>}
+
         </>
     );
 }
