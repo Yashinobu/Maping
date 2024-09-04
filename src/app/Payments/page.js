@@ -86,13 +86,33 @@ export default function Payment() {
                         <div className="w-full flex flex-col">
                             <p className="text-black border-solid border-l-[#c63548] border-l-[3px] pl-3 font-bold">決済方法を選択</p>
                             <div className="flex gap-3 justify-between mt-5">
-                                <button className={`text-[${btnCol1 ? "#c63548" : "#e3e3e3"}] border-solid border-[${btnCol1 ? "#c63548" : "#e3e3e3"}] border-[2px] font-bold rounded-full w-[48%] py-1`} onClick={() => handleClick(1)}>クレジット</button>
-                                <button className={`text-[${btnCol2 ? "#c63548" : "#e3e3e3"}] border-solid border-[${btnCol2 ? "#c63548" : "#e3e3e3"}] border-[2px] font-bold rounded-full w-[48%] py-1`} onClick={() => handleClick(2)}>あと払い(ペイディ)</button>
+                                {
+                                    btnCol1 ?
+                                        <button className="text-[#c63548] border-solid border-[#c63548] border-[2px] font-bold rounded-full w-[48%] py-1" onClick={() => handleClick(1)}>クレジット</button>
+                                        :
+                                        <button className="text-[#e3e3e3] border-solid border-[#e3e3e3] border-[2px] font-bold rounded-full w-[48%] py-1" onClick={() => handleClick(1)}>クレジット</button>
+                                }
+                                {
+                                    btnCol2 ?
+                                        <button className="text-[#c63548] border-solid border-[#c63548] border-[2px] font-bold rounded-full w-[48%] py-1" onClick={() => handleClick(2)}>あと払い(ペイディ)</button>
+                                        :
+                                        <button className="text-[#e3e3e3] border-solid border-[#e3e3e3] border-[2px] font-bold rounded-full w-[48%] py-1" onClick={() => handleClick(2)}>あと払い(ペイディ)</button>
+                                }
                             </div>
 
                             <div className="flex gap-3 justify-between mt-3">
-                                <button className={`text-[${btnCol3 ? "#c63548" : "#e3e3e3"}] border-solid border-[${btnCol3 ? "#c63548" : "#e3e3e3"}] border-[2px] font-bold rounded-full w-[48%] py-1`} onClick={() => handleClick(3)}>ビットキャッシュ</button>
-                                <button className={`text-[${btnCol4 ? "#c63548" : "#e3e3e3"}] border-solid border-[${btnCol4 ? "#c63548" : "#e3e3e3"}] border-[2px] font-bold rounded-full w-[48%] py-1`} onClick={() => handleClick(4)}>銀行振込</button>
+                                {
+                                    btnCol3 ?
+                                        <button className="text-[#c63548] border-solid border-[#c63548] border-[2px] font-bold rounded-full w-[48%] py-1" onClick={() => handleClick(3)}>ビットキャッシュ</button>
+                                        :
+                                        <button className="text-[#e3e3e3] border-solid border-[#e3e3e3] border-[2px] font-bold rounded-full w-[48%] py-1" onClick={() => handleClick(3)}>ビットキャッシュ</button>
+                                }
+                                {
+                                    btnCol4 ?
+                                        <button className="text-[#c63548] border-solid border-[#c63548] border-[2px] font-bold rounded-full w-[48%] py-1" onClick={() => handleClick(4)}>銀行振込</button>
+                                        :
+                                        <button className="text-[#e3e3e3] border-solid border-[#e3e3e3] border-[2px] font-bold rounded-full w-[48%] py-1" onClick={() => handleClick(4)}>銀行振込</button>
+                                }
                             </div>
                         </div>
 
