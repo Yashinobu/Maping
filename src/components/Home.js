@@ -2,8 +2,11 @@
 import Head from "next/head";
 import { BeakerIcon, HomeIcon, UserGroupIcon, StarIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
 import { useState, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+
+    const router = useRouter();
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -83,6 +86,10 @@ export default function Home() {
             default:
                 break;
         }
+    }
+
+    const handleGoPayment = () => {
+        router.push('./Payments')
     }
 
     return (
@@ -223,14 +230,8 @@ export default function Home() {
                     <HomeIcon width={40} height={40} color="#f10b36"></HomeIcon>
                     <UserGroupIcon width={40} height={40}></UserGroupIcon>
                     <StarIcon width={40} height={40}></StarIcon>
-                    <CurrencyDollarIcon width={40} height={40}></CurrencyDollarIcon>
+                    <CurrencyDollarIcon width={40} height={40} onClick={handleGoPayment}></CurrencyDollarIcon>
                 </div> : null}
-                {/* <div className="flex justify-between gap-3 py-1 px-2 fixed bottom-0 hidden w-full bg-white shadow-black shadow-lg h-[50px]">
-                    <HomeIcon width={40} height={40} color="#f10b36"></HomeIcon>
-                    <UserGroupIcon width={40} height={40}></UserGroupIcon>
-                    <StarIcon width={40} height={40}></StarIcon>
-                    <CurrencyDollarIcon width={40} height={40}></CurrencyDollarIcon>
-                </div> */}
             </main>
         </>
     );
