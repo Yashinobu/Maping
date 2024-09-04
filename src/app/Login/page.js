@@ -3,8 +3,9 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import Home from "@/components/Home";
 
-export default function Home() {
+export default function Login() {
 
     const { data: session } = useSession();
 
@@ -91,7 +92,7 @@ export default function Home() {
                     <button className="text-[12px] text-[#007be5]">Reset password</button>
                     <div className="flex text-[12px] gap-2"><label>No account?</label><button className="text-[#007be5]">Create one</button></div>
                 </div>
-            </main> : <main className="flex h-screen flex-col items-center bg-white p-2 text-[#5C5F5D]"><h1 className="text-[32px]">Welcome to Login</h1></main>}
+            </main> : <Home />}
 
         </>
     );
