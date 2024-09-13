@@ -46,7 +46,7 @@ export default function Home() {
         maxDate: new Date("2030-01-01"),
         minDate: new Date("1950-01-01"),
         theme: {
-            background: "bg-white dark:bg-white",
+            background: "bg-[#e3dbdb] dark:bg-[#e3dbdb]",
             todayBtn: "",
             clearBtn: "",
             icons: "bg-white text-black dark:bg-white dark:text-black",
