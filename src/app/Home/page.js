@@ -62,8 +62,8 @@ export default function Home() {
         }
     }
 
-    const handleGoPayment = () => {
-        router.push('./Payments')
+    const handlePin = () => {
+        router.push('./Pin')
     }
 
     return (
@@ -137,7 +137,7 @@ export default function Home() {
                 </div>
                 {isVisible ? <div className="flex justify-between gap-3 py-2 px-2 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#EEEE54" />
-                    <MagnifyingGlassIcon width={40} height={40} color="#C9C9C9" />
+                    <MagnifyingGlassIcon width={40} height={40} color="#C9C9C9" onClick={handlePin} />
                     <HeartIcon width={40} height={40} color="#C9C9C9" />
                     <ChatBubbleLeftRightIcon width={40} height={40} color="#C9C9C9" />
                     <UserIcon width={40} height={40} color="#C9C9C9" />
