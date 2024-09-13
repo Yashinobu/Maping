@@ -1,6 +1,6 @@
 'use client'
 import Head from "next/head";
-import { BeakerIcon, HomeIcon, UserGroupIcon, StarIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
+import { BeakerIcon, HomeIcon, UserGroupIcon, HeartIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 
@@ -8,7 +8,7 @@ export default function Home() {
 
     const router = useRouter();
 
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
 
     const handleScroll = useCallback(() => {
         const scroll = window.scrollY;
@@ -30,14 +30,6 @@ export default function Home() {
     const [color4, setColor4] = useState("grey")
     const [color5, setColor5] = useState("grey")
     const [color6, setColor6] = useState("grey")
-    const [color7, setColor7] = useState("grey")
-    const [color8, setColor8] = useState("grey")
-    const [color9, setColor9] = useState("grey")
-    const [color10, setColor10] = useState("grey")
-    const [color11, setColor11] = useState("grey")
-    const [color12, setColor12] = useState("grey")
-    const [color13, setColor13] = useState("grey")
-    const [color14, setColor14] = useState("grey")
 
     const handleOnClick = (value) => {
         switch (value) {
@@ -65,24 +57,6 @@ export default function Home() {
             case 6:
                 color6 === "grey" ? setColor6("red") : setColor6("grey")
                 break;
-            case 7:
-                color7 === "grey" ? setColor7("red") : setColor7("grey")
-                break;
-            case 8:
-                color8 === "grey" ? setColor8("red") : setColor8("grey")
-                break;
-            case 9:
-                color9 === "grey" ? setColor9("red") : setColor9("grey")
-                break;
-            case 12:
-                color12 === "grey" ? setColor12("red") : setColor12("grey")
-                break;
-            case 13:
-                color13 === "grey" ? setColor13("red") : setColor13("grey")
-                break;
-            case 14:
-                color14 === "grey" ? setColor14("red") : setColor14("grey")
-                break;
             default:
                 break;
         }
@@ -101,16 +75,16 @@ export default function Home() {
                 <div className="flex flex-col w-full bg-white px-2">
                     <div className="flex justify-between gap-4">
                         <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color1} onClick={() => handleOnClick(1)} ></StarIcon>
-                            <img src="./user.png" className="rounded-md" />
+                            <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color1} onClick={() => handleOnClick(1)} />
+                            <img src="./user.jpg" className="rounded-md" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px] opacity-100">Yamada Ruske</label>
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
                             </div>
                         </div>
                         <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color2} onClick={() => handleOnClick(2)}></StarIcon>
-                            <img src="./user1.png" className="rounded-md" />
+                            <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color2} onClick={() => handleOnClick(2)} />
+                            <img src="./user1.jpg" className="rounded-md" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px]">Tomo Yuki</label>
                                 <label className="text-[12px]">Swim, Drive...</label>
@@ -119,16 +93,16 @@ export default function Home() {
                     </div>
                     <div className="flex justify-between gap-4 mt-3">
                         <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color3} onClick={() => handleOnClick(3)}></StarIcon>
-                            <img src="./user2.png" className="rounded-md" />
+                            <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color3} onClick={() => handleOnClick(3)} />
+                            <img src="./user2.jpg" className="rounded-md" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px] opacity-100">Yamada Ruske</label>
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
                             </div>
                         </div>
                         <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color4} onClick={() => handleOnClick(4)}></StarIcon>
-                            <img src="./user3.png" className="rounded-md" />
+                            <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color4} onClick={() => handleOnClick(4)} />
+                            <img src="./user3.jpg" className="rounded-md" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px]">Tomo Yuki</label>
                                 <label className="text-[12px]">Swim, Drive...</label>
@@ -137,88 +111,16 @@ export default function Home() {
                     </div>
                     <div className="flex justify-between gap-4 mt-3">
                         <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color5} onClick={() => handleOnClick(5)}></StarIcon>
-                            <img src="./user4.png" className="rounded-md" />
+                            <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color5} onClick={() => handleOnClick(5)} />
+                            <img src="./user4.jpg" className="rounded-md" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px] opacity-100">Yamada Ruske</label>
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
                             </div>
                         </div>
                         <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color6} onClick={() => handleOnClick(6)}></StarIcon>
-                            <img src="./user5.png" className="rounded-md" />
-                            <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
-                                <label className="text-[16px]">Tomo Yuki</label>
-                                <label className="text-[12px]">Swim, Drive...</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex justify-between gap-4 mt-3">
-                        <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color7} onClick={() => handleOnClick(7)}></StarIcon>
-                            <img src="./user6.png" className="rounded-md" />
-                            <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
-                                <label className="text-[16px] opacity-100">Yamada Ruske</label>
-                                <label className="text-[12px] opacity-100">Book, Music...</label>
-                            </div>
-                        </div>
-                        <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color8} onClick={() => handleOnClick(8)}></StarIcon>
-                            <img src="./user.png" className="rounded-md" />
-                            <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
-                                <label className="text-[16px]">Tomo Yuki</label>
-                                <label className="text-[12px]">Swim, Drive...</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex justify-between gap-4 mt-3">
-                        <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color9} onClick={() => handleOnClick(9)}></StarIcon>
-                            <img src="./user.png" className="rounded-md" />
-                            <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
-                                <label className="text-[16px] opacity-100">Yamada Ruske</label>
-                                <label className="text-[12px] opacity-100">Book, Music...</label>
-                            </div>
-                        </div>
-                        <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color10} onClick={() => handleOnClick(10)}></StarIcon>
-                            <img src="./user1.png" className="rounded-md" />
-                            <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
-                                <label className="text-[16px]">Tomo Yuki</label>
-                                <label className="text-[12px]">Swim, Drive...</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex justify-between gap-4 mt-3">
-                        <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color11} onClick={() => handleOnClick(11)}></StarIcon>
-                            <img src="./user2.png" className="rounded-md" />
-                            <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
-                                <label className="text-[16px] opacity-100">Yamada Ruske</label>
-                                <label className="text-[12px] opacity-100">Book, Music...</label>
-                            </div>
-                        </div>
-                        <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color12} onClick={() => handleOnClick(12)}></StarIcon>
-                            <img src="./user3.png" className="rounded-md" />
-                            <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
-                                <label className="text-[16px]">Tomo Yuki</label>
-                                <label className="text-[12px]">Swim, Drive...</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex justify-between gap-4 mt-3">
-                        <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color13} onClick={() => handleOnClick(13)}></StarIcon>
-                            <img src="./user4.png" className="rounded-md" />
-                            <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
-                                <label className="text-[16px] opacity-100">Yamada Ruske</label>
-                                <label className="text-[12px] opacity-100">Book, Music...</label>
-                            </div>
-                        </div>
-                        <div className="relative w-[48%] h-full">
-                            <StarIcon className="absolute top-2 right-2" width={30} height={30} color={color14} onClick={() => handleOnClick(14)}></StarIcon>
-                            <img src="./user5.png" className="rounded-md" />
+                            <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color6} onClick={() => handleOnClick(6)} />
+                            <img src="./user5.jpg" className="rounded-md" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px]">Tomo Yuki</label>
                                 <label className="text-[12px]">Swim, Drive...</label>
@@ -229,7 +131,7 @@ export default function Home() {
                 {isVisible ? <div className="flex justify-between gap-3 py-2 px-2 fixed bottom-0 w-full bg-white shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#f10b36"></HomeIcon>
                     <UserGroupIcon width={40} height={40}></UserGroupIcon>
-                    <StarIcon width={40} height={40}></StarIcon>
+                    <HeartIcon width={40} height={40}></HeartIcon>
                     <CurrencyDollarIcon width={40} height={40} onClick={handleGoPayment}></CurrencyDollarIcon>
                 </div> : null}
             </main>

@@ -9,7 +9,7 @@ export default function Home() {
   const handleClick = (e) => {
     console.log(e.target.value)
     e.preventDefault()
-    router.push('./Login');
+    router.push('./Home');
   }
 
   return (
