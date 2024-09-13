@@ -64,7 +64,7 @@ export default function Home() {
                         <label className="text-[#5C5F5D] font-bold text-[32px]">PIN</label>
                     </div>
                 </div>
-                <div className="flex flex-col w-full bg-transparent px-2 mt-[60px] z-[9999] pt-3 pb-3">
+                <div className="flex flex-col w-full bg-transparent px-2 mt-[60px] z-[9999] pt-7 pb-3">
                     <div className="flex justify-center">
                         <button className="bg-[#FAFB64] text-[16px] rounded-[100px] px-4 py-2 h-full mr-[-40px] z-[50]">PINをさす</button>
                         <button className="bg-white text-[16px] rounded-[100px] pl-12 pr-4 py-2 h-full z-[40] border-y-solid border-y-[2px] border-y-[#EEEEEE] border-r-solid border-r-[2px] border-r-[#EEEEEE]">PINをみる</button>

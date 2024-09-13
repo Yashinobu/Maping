@@ -81,7 +81,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col w-full bg-white px-2 mt-[60px] pt-3 pb-3">
                     <div className="flex justify-between gap-4">
-                        <div className="relative w-[48%] h-[217px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color1} onClick={() => handleOnClick(1)} ></HeartIcon>
                             <img src="./guide1.svg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
@@ -89,7 +89,7 @@ export default function Home() {
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
                             </div>
                         </div>
-                        <div className="relative w-[48%] h-[217px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color2} onClick={() => handleOnClick(2)}></HeartIcon>
                             <img src="./user1.jpg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
@@ -99,7 +99,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="flex justify-between gap-4 mt-3">
-                        <div className="relative w-[48%] h-[217px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color3} onClick={() => handleOnClick(3)}></HeartIcon>
                             <img src="./user2.jpg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
@@ -107,7 +107,7 @@ export default function Home() {
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
                             </div>
                         </div>
-                        <div className="relative w-[48%] h-[217px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color4} onClick={() => handleOnClick(4)}></HeartIcon>
                             <img src="./user3.jpg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
@@ -117,7 +117,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="flex justify-between gap-4 mt-3">
-                        <div className="relative w-[48%] h-[217px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color5} onClick={() => handleOnClick(5)}></HeartIcon>
                             <img src="./guide1.svg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
@@ -125,7 +125,7 @@ export default function Home() {
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
                             </div>
                         </div>
-                        <div className="relative w-[48%] h-[217px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color6} onClick={() => handleOnClick(6)}></HeartIcon>
                             <img src="./guide1.svg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
