@@ -50,7 +50,7 @@ export default function Home() {
             todayBtn: "",
             clearBtn: "",
             icons: "bg-white text-black dark:bg-white dark:text-black",
-            text: "text-black dark:text-black",
+            text: "text-white dark:text-black",
             disabledText: "bg-gray-500 text-white dark:bg-gray-500 dark:text-white",
             input: "bg-white border-solid border-[#EEEEEE] border-[2px] text-black dark:bg-white dark:text-black dark:border-solid dark:border-[#EEEEEE] dark:border-[2px]",
             inputIcon: "",
