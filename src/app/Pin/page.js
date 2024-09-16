@@ -33,6 +33,10 @@ export default function Home() {
         router.push('./Home')
     }
 
+    const handleFavourite = () => {
+        router.push('./Favourite')
+    }
+
     const handleGoogleMapPin = () => {
         router.push('./GoogleMapPin')
     }
@@ -135,7 +139,7 @@ export default function Home() {
                 {isVisible ? <div className="flex justify-between gap-3 py-2 px-2 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#C9C9C9" onClick={handleHome} />
                     <MagnifyingGlassIcon width={40} height={40} color="#EEEE54" onClick={handlePin} />
-                    <HeartIcon width={40} height={40} color="#C9C9C9" />
+                    <HeartIcon width={40} height={40} color="#C9C9C9" onClick={handleFavourite} />
                     <ChatBubbleLeftRightIcon width={40} height={40} color="#C9C9C9" />
                     <UserIcon width={40} height={40} color="#C9C9C9" />
                 </div> : null}
