@@ -45,8 +45,8 @@ export default function Favourite() {
 
     const userData = [
         { name: 'Yamada', age: 25, address: 'Tokyo', date: '9/3 18:00', favourite: false, index: 1, url: './user.jpg' },
-        { name: 'Yamada1', age: 22, address: 'Tokyo', date: '9/3 18:00', favourite: false, index: 2, url: './user1.jpg' },
-        { name: 'Yamada2', age: 27, address: 'Tokyo', date: '9/3 18:00', favourite: false, index: 3, url: './user2.jpg' }
+        { name: 'Yumiko', age: 22, address: 'Tokyo', date: '9/3 18:00', favourite: false, index: 2, url: './user1.jpg' },
+        { name: 'Tanaka', age: 27, address: 'Tokyo', date: '9/3 18:00', favourite: false, index: 3, url: './user2.jpg' }
     ]
 
     const [uData, setUData] = useState(userData);
@@ -74,16 +74,16 @@ export default function Favourite() {
                         <label className="text-[#5C5F5D] font-bold text-[32px]">いいね</label>
                     </div>
                 </div>
-                <div className="flex flex-col w-full bg-white px-2 mt-[60px] pt-7 pb-3">
+                <div className="flex flex-col w-full bg-white px-2 mt-[60px] sm:mt-[40px] pt-7 pb-3">
                     <div className="flex justify-center">
                         <button className="bg-[#FAFB64] text-[16px] rounded-[100px] px-4 py-2 h-full mr-[-40px] z-[50]">お相手から</button>
                         <button className="bg-white text-[16px] rounded-[100px] pl-12 pr-4 py-2 h-full z-[40] border-y-solid border-y-[2px] border-y-[#EEEEEE] border-r-solid border-r-[2px] border-r-[#EEEEEE]">自分から</button>
                     </div>
                 </div>
                 <div className="flex flex-col w-full bg-white px-2 mt-2 gap-4">
-                    {uData.map((item) => <div className="flex w-full h-[100px] px-3" key={item.index}>
+                    {uData.map((item) => <div className="flex w-full h-[100px] sm:h-[90px] px-3" key={item.index}>
                         <img src={item.url} width={'100px'} height={'100px'} className="rounded-xl mr-3" />
-                        <div className="flex flex-col w-full gap-2">
+                        <div className="flex flex-col w-full gap-2 sm:gap-1">
                             <div className="flex w-full justify-between">
                                 <div className="flex gap-2">
                                     <label>{item.name} {item.age}歳</label>

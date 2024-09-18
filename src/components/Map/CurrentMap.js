@@ -93,10 +93,10 @@ const CurrentMap = (Map) => {
                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <div className="absolute bottom-[70px] border-solid border-[2px] z-[99999] w-[90%] right-[5%] h-[150px]">
-                <img src="./PIN_tap.png" className="w-[150px] h-full absolute right-0" />
-                <label className="w-[25px] h-[25px] bg-[#F3757D] rounded-[100px] text-[14px] text-center text-white px-1 py-1 absolute top-9 right-9">1</label>
-                <label className="w-[25px] h-[25px] bg-white rounded-[100px] drop-shadow-md text-[18px] text-center text-[#F3757D] px-1 pb-1 absolute bottom-4 right-5">+</label>
+            <div className="absolute bottom-[70px] z-[99999] w-[90%] right-[5%] h-[150px] sm:h-[100px] sm:bottom-[75px]">
+                <img src="./PIN_tap.png" className="w-[150px] sm:w-[100px] h-full absolute right-0" />
+                <label className="w-[25px] h-[25px] bg-[#F3757D] rounded-[100px] text-[14px] text-center text-white px-1 py-1 absolute top-9 sm:top-5 right-9 sm:right-5">1</label>
+                <label className="w-[25px] h-[25px] bg-white rounded-[100px] drop-shadow-md text-[18px] text-center text-[#F3757D] px-1 pb-1 absolute bottom-4 sm:bottom-2 right-5 sm:right-4">+</label>
             </div>
         </MapContainer>
     )
