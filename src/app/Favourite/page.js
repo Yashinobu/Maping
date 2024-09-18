@@ -70,7 +70,7 @@ export default function Favourite() {
                     </div>
                 </div>
                 <div className="flex flex-col w-full bg-white px-2 mt-2 gap-4">
-                    {uData.map((item) => <div className="flex w-full h-[100px] px-3">
+                    {uData.map((item) => <div className="flex w-full h-[100px] px-3" key={item.index}>
                         <img src={item.url} width={'100px'} height={'100px'} className="rounded-xl mr-3" />
                         <div className="flex flex-col w-full gap-2">
                             <div className="flex w-full justify-between">
