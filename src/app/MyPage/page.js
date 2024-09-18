@@ -40,6 +40,10 @@ export default function MyPage() {
         router.push('./MyPage')
     }
 
+    const handleMessage = () => {
+        router.push('./Message')
+    }
+
     return (
         <>
             <Head>
@@ -107,7 +111,7 @@ export default function MyPage() {
                     <HomeIcon width={40} height={40} color="#C9C9C9" onClick={handleHome} />
                     <MagnifyingGlassIcon width={40} height={40} color="#C9C9C9" onClick={handlePin} />
                     <HeartIcon width={40} height={40} color="#C9C9C9" onClick={handleFavourite} />
-                    <ChatBubbleLeftRightIcon width={40} height={40} color="#C9C9C9" />
+                    <ChatBubbleLeftRightIcon width={40} height={40} color="#C9C9C9" onClick={handleMessage} />
                     <UserIcon width={40} height={40} color="#EEEE54" onClick={handleMyPage} />
                 </div> : null}
             </main>
