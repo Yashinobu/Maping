@@ -32,6 +32,14 @@ export default function Favourite() {
         router.push('./Pin')
     }
 
+    const handleMyPage = () => {
+        router.push('./MyPage')
+    }
+
+    const handleMessage = () => {
+        router.push('./Message')
+    }
+
     const userData = [
         { name: 'Yamada', age: 25, address: 'Tokyo', date: '9/3 18:00', favourite: false, index: 1, url: './user.jpg' },
         { name: 'Yamada1', age: 22, address: 'Tokyo', date: '9/3 18:00', favourite: false, index: 2, url: './user1.jpg' },
@@ -101,8 +109,8 @@ export default function Favourite() {
                     <HomeIcon width={40} height={40} color="#C9C9C9" onClick={handleHome} />
                     <MagnifyingGlassIcon width={40} height={40} color="#C9C9C9" onClick={handlePin} />
                     <HeartIcon width={40} height={40} color="#EEEE54" />
-                    <ChatBubbleLeftRightIcon width={40} height={40} color="#C9C9C9" />
-                    <UserIcon width={40} height={40} color="#C9C9C9" />
+                    <ChatBubbleLeftRightIcon width={40} height={40} color="#C9C9C9" onClick={handleMessage} />
+                    <UserIcon width={40} height={40} color="#C9C9C9" onClick={handleMyPage} />
                 </div> : null}
             </main>
         </>
