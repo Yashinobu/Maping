@@ -97,7 +97,7 @@ export default function Home() {
                     <div className="flex justify-between gap-4">
                         <div className="relative w-[46%] h-[195px] sm:h-[120px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color1} onClick={() => handleOnClick(1)} ></HeartIcon>
-                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 sm:p-5 mt-[-20px]" />
+                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 sm:p-5 mt-[-20px] sm:mt-[-15px]" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px] opacity-100">Yamada Ruske</label>
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
@@ -133,7 +133,7 @@ export default function Home() {
                     <div className="flex justify-between gap-4 mt-3">
                         <div className="relative w-[46%] h-[195px] sm:h-[120px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color5} onClick={() => handleOnClick(5)}></HeartIcon>
-                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 sm:p-5 mt-[-20px]" />
+                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 sm:p-5 mt-[-20px] sm:mt-[-15px]" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px] opacity-100">Yamada Ruske</label>
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
@@ -141,7 +141,7 @@ export default function Home() {
                         </div>
                         <div className="relative w-[46%] h-[195px] sm:h-[120px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color6} onClick={() => handleOnClick(6)}></HeartIcon>
-                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 sm:p-5 mt-[-20px]" />
+                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 sm:p-5 mt-[-20px] sm:mt-[-15px]" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px]">Tomo Yuki</label>
                                 <label className="text-[12px]">Swim, Drive...</label>
