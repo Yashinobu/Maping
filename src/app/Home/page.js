@@ -3,6 +3,8 @@ import Head from "next/head";
 import { MagnifyingGlassIcon, HomeIcon, UserIcon, HeartIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/solid'
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import MessageIcon from "@/components/Icon/MessageIcon";
+import PinIcon from "@/components/Icon/PinIcon";
 
 export default function Home() {
 
@@ -91,17 +93,17 @@ export default function Home() {
                         <label className="text-[#5C5F5D] font-bold text-[32px]">Maping</label>
                     </div>
                 </div>
-                <div className="flex flex-col w-full bg-white px-2 mt-[60px] pt-3 pb-3">
+                <div className="flex flex-col w-full bg-white px-5 mt-[60px] pt-3 pb-3">
                     <div className="flex justify-between gap-4">
-                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[46%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color1} onClick={() => handleOnClick(1)} ></HeartIcon>
-                            <img src="./guide1.svg" className="rounded-md w-full h-full" />
+                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 mt-[-20px]" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px] opacity-100">Yamada Ruske</label>
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
                             </div>
                         </div>
-                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[46%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color2} onClick={() => handleOnClick(2)}></HeartIcon>
                             <img src="./user1.jpg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
@@ -111,7 +113,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="flex justify-between gap-4 mt-3">
-                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[46%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color3} onClick={() => handleOnClick(3)}></HeartIcon>
                             <img src="./user2.jpg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
@@ -119,7 +121,7 @@ export default function Home() {
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
                             </div>
                         </div>
-                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[46%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color4} onClick={() => handleOnClick(4)}></HeartIcon>
                             <img src="./user3.jpg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
@@ -129,17 +131,17 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="flex justify-between gap-4 mt-3">
-                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[46%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color5} onClick={() => handleOnClick(5)}></HeartIcon>
-                            <img src="./guide1.svg" className="rounded-md w-full h-full" />
+                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 mt-[-20px]" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px] opacity-100">Yamada Ruske</label>
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
                             </div>
                         </div>
-                        <div className="relative w-[48%] h-[205px] bg-[#EEEEEE] rounded-lg">
+                        <div className="relative w-[46%] h-[205px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color6} onClick={() => handleOnClick(6)}></HeartIcon>
-                            <img src="./guide1.svg" className="rounded-md w-full h-full" />
+                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 mt-[-20px]" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px]">Tomo Yuki</label>
                                 <label className="text-[12px]">Swim, Drive...</label>
@@ -147,11 +149,11 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                {isVisible ? <div className="flex justify-between gap-3 py-2 px-2 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
+                {isVisible ? <div className="flex justify-between gap-3 py-4 px-2 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#EEEE54" />
-                    <MagnifyingGlassIcon width={40} height={40} color="#C9C9C9" onClick={handlePin} />
+                    <button onClick={handlePin}><PinIcon width={40} height={40} color="#C9C9C9" /></button>
                     <HeartIcon width={40} height={40} color="#C9C9C9" onClick={handleFavourite} />
-                    <ChatBubbleLeftRightIcon width={40} height={40} color="#C9C9C9" onClick={handleMessage} />
+                    <button onClick={handleMessage}><MessageIcon width={40} height={40} color="#C9C9C9" /></button>
                     <UserIcon width={40} height={40} color="#C9C9C9" onClick={handleMyPage} />
                 </div> : null}
             </main>

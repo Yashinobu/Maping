@@ -3,8 +3,9 @@ import Head from "next/head";
 import { MagnifyingGlassIcon, ArrowLeftIcon, HomeIcon, UserIcon, HeartIcon, ChatBubbleLeftRightIcon, ChevronLeftIcon, ChevronRightIcon, MapPinIcon, MapIcon, StarIcon } from '@heroicons/react/24/solid'
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import Datepicker from "tailwind-datepicker-react"
 import dynamic from "next/dynamic";
+import MessageIcon from "@/components/Icon/MessageIcon";
+import PinIcon from "@/components/Icon/PinIcon";
 
 export default function Home() {
 
@@ -82,11 +83,11 @@ export default function Home() {
                 <div className="w-[95%] h-[80%] absolute left-[2.5%] top-[60px] xs:h-[64%] xs:top-[68px] 2xs:h-[77%] 2xs:top-[75px] sm:h-[90%] sm:top-[60px]" onClick={handleClick}>
                     <Map state={state} />
                 </div>
-                {isVisible ? <div className="flex justify-between gap-3 py-2 px-2 z-[9999] fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
+                {isVisible ? <div className="flex justify-between gap-3 py-4 px-2 z-[9999] fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#C9C9C9" onClick={handleHome} />
-                    <MagnifyingGlassIcon width={40} height={40} color="#EEEE54" />
+                    <button><PinIcon width={40} height={40} color="#EEEE54" /></button>
                     <HeartIcon width={40} height={40} color="#C9C9C9" onClick={handleFavourite} />
-                    <ChatBubbleLeftRightIcon width={40} height={40} color="#C9C9C9" onClick={handleMessage} />
+                    <button onClick={handleMessage}><MessageIcon width={40} height={40} color="#C9C9C9" /></button>
                     <UserIcon width={40} height={40} color="#C9C9C9" onClick={handleMyPage} />
                 </div> : null}
             </main>

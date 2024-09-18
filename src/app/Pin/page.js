@@ -4,6 +4,8 @@ import { MagnifyingGlassIcon, ArrowLeftIcon, HomeIcon, UserIcon, HeartIcon, Chat
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Datepicker from "tailwind-datepicker-react"
+import MessageIcon from "@/components/Icon/MessageIcon";
+import PinIcon from "@/components/Icon/PinIcon";
 
 export default function Home() {
 
@@ -39,6 +41,10 @@ export default function Home() {
 
     const handleGoogleMapPin = () => {
         router.push('./GoogleMapPin')
+    }
+
+    const handleMessage = () => {
+        router.push('./Message')
     }
 
     const options = {
@@ -136,12 +142,13 @@ export default function Home() {
                         </button>
                     </div>
                 </div>
-                {isVisible ? <div className="flex justify-between gap-3 py-2 px-2 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
+                {isVisible ? <div className="flex justify-between gap-3 z-100 py-4 px-2 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#C9C9C9" onClick={handleHome} />
-                    <MagnifyingGlassIcon width={40} height={40} color="#EEEE54" onClick={handlePin} />
+                    <button onClick={handlePin}><PinIcon width={40} height={40} color="#EEEE54" /></button>
                     <HeartIcon width={40} height={40} color="#C9C9C9" onClick={handleFavourite} />
-                    <ChatBubbleLeftRightIcon width={40} height={40} color="#C9C9C9" />
+                    <button onClick={handleMessage}><MessageIcon width={40} height={40} color="#C9C9C9" /></button>
                     <UserIcon width={40} height={40} color="#C9C9C9" />
+
                 </div> : null}
             </main>
         </>

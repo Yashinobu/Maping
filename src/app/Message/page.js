@@ -3,6 +3,9 @@ import Head from "next/head";
 import { MagnifyingGlassIcon, HomeIcon, UserIcon, HeartIcon, ChatBubbleLeftRightIcon, ChevronLeftIcon, TrashIcon, MapPinIcon, ChevronRightIcon, ArrowLeftIcon, BookmarkIcon } from '@heroicons/react/24/solid'
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import MessageIcon from "@/components/Icon/MessageIcon";
+import PinIcon from "@/components/Icon/PinIcon";
+
 
 export default function Favourite() {
 
@@ -103,15 +106,11 @@ export default function Favourite() {
                         </div>
                     </div>)}
                 </div>
-                {isVisible ? <div className="flex justify-between gap-3 py-2 px-2 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
+                {isVisible ? <div className="flex justify-between gap-3 py-4 px-2 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#C9C9C9" onClick={handleHome} />
-                    <MagnifyingGlassIcon width={40} height={40} color="#C9C9C9" onClick={handlePin} />
+                    <button onClick={handlePin}><PinIcon width={40} height={40} color="#C9C9C9" /></button>
                     <HeartIcon width={40} height={40} color="#C9C9C9" onClick={handleFavourite} />
-                    <div className="relative">
-                        <ChatBubbleLeftRightIcon width={40} height={40} color="#EEEE54" />
-                        <label className="absolute bg-[#F3757D] rounded-[100px] w-[20px] h-[20px] px-2 top-0 right-[-10px] text-white text-[12px]">1</label>
-
-                    </div>
+                    <button className="relative" ><MessageIcon width={40} height={40} color="#EEEE54" /><label className="absolute bg-[#F3757D] rounded-[100px] w-[20px] h-[20px] px-2 top-0 right-[-10px] text-white text-[12px]">1</label></button>
                     <UserIcon width={40} height={40} color="#C9C9C9" onClick={handleMyPage} />
                 </div> : null}
             </main>
