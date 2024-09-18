@@ -95,7 +95,7 @@ const Map = (Map) => {
             />
             <div className="absolute bottom-[70px] border-solid border-[2px] border-[#FAFB64] border-rounded-lg z-[99999] w-[90%] h-[235px] left-[5%] bg-white rounded-lg">
                 <div className="w-full px-4 flex justify-between pt-3">
-                    <label className="text-[25px] text-[#5C5F5D] font-bold border-b-solid border-b-[2px] border-b-[#FAFB64] mb-[8px]">{user.name}さん</label>
+                    <label className="text-[25px] text-[#5C5F5D] font-bold border-b-solid border-b-[2px] border-b-[#FAFB64] mb-[8px]">Name さん</label>
                     <button className="bg-[#FAFB64] text-[20px] px-4 py-2 font-bold rounded-[100px] drop-shadow-md" onClick={lll}>連絡する</button>
                 </div>
                 <div className="flex flex-col w-full justify-start gap-2">
