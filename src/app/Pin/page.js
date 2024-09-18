@@ -40,7 +40,7 @@ export default function Home() {
     }
 
     const handleGoogleMapPin = () => {
-        router.push('./GoogleMapPin')
+        router.push('./CurrentMap')
     }
 
     const handleMessage = () => {
