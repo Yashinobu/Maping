@@ -27,20 +27,23 @@ export default function Home() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [handleScroll]);
 
-    const handlePin = () => {
-        router.push('./Pin')
-    }
-
     const handleHome = () => {
         router.push('./Home')
     }
 
-    const handleGoogleMapPin = () => {
-        router.push('./GoogleMapPin')
+    const handleFavourite = () => {
+        router.push('./Favourite')
+    }
+
+    const handleMyPage = () => {
+        router.push('./MyPage')
+    }
+
+    const handleMessage = () => {
+        router.push('./Message')
     }
 
     const handleClick = () => {
-        console.log("SSSSSSSS")
         setState(true)
     }
     // Part of Map
@@ -81,10 +84,10 @@ export default function Home() {
                 </div>
                 {isVisible ? <div className="flex justify-between gap-3 py-2 px-2 z-[9999] fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#C9C9C9" onClick={handleHome} />
-                    <MagnifyingGlassIcon width={40} height={40} color="#EEEE54" onClick={handlePin} />
-                    <HeartIcon width={40} height={40} color="#C9C9C9" />
-                    <ChatBubbleLeftRightIcon width={40} height={40} color="#C9C9C9" />
-                    <UserIcon width={40} height={40} color="#C9C9C9" />
+                    <MagnifyingGlassIcon width={40} height={40} color="#EEEE54" />
+                    <HeartIcon width={40} height={40} color="#C9C9C9" onClick={handleFavourite} />
+                    <ChatBubbleLeftRightIcon width={40} height={40} color="#C9C9C9" onClick={handleMessage} />
+                    <UserIcon width={40} height={40} color="#C9C9C9" onClick={handleMyPage} />
                 </div> : null}
             </main>
         </>
