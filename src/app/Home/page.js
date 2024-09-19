@@ -89,8 +89,8 @@ export default function Home() {
                 <div className="fixed z-[100] h-[60px] bg-white w-full drop-shadow-lg border-b-solid border-b-[2px] border-b-[#00000029]">
                     <MagnifyingGlassIcon className="absolute top-2 left-2" width={30} height={30} />
                     <div className="flex place-content-center w-full gap-2">
-                        <img src="./maping_logo.png" width={20} height={20} className="pt-3 pb-5" />
-                        <label className="text-[#5C5F5D] font-bold text-[32px]">Maping</label>
+                        <img src="./Maping＿logo-ai.png" width={150} height={60} className="p-2" />
+                        {/* <label className="text-[#5C5F5D] font-bold text-[32px]">Maping</label> */}
                     </div>
                 </div>
                 <div className="flex flex-col w-full bg-white px-5 mt-[60px] pt-3 pb-3">
