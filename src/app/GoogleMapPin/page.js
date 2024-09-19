@@ -12,7 +12,7 @@ export default function Home() {
     const router = useRouter()
 
     const [isVisible, setIsVisible] = useState(true);
-    const [state, setState] = useState(false);
+    const [state, setState] = useState(true);
 
     const handleScroll = useCallback(() => {
         const scroll = window.scrollY;
@@ -53,6 +53,16 @@ export default function Home() {
     }
     // Part of Map
 
+    const [position, setPosition] = useState([]);
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(position => {
+            const { latitude, longitude } = position.coords;
+            console.log("Current location", latitude, longitude)
+            setPosition([latitude, longitude]);
+        });
+    }, []);
+
     const Map = useMemo(() => dynamic(
         () => import('@/components/Map/LeafletMap'),
         {
@@ -85,7 +95,7 @@ export default function Home() {
                     </div> */}
                 </div>
                 <div className="w-[95%] h-[80%] absolute left-[2.5%] top-[60px] xs:h-[64%] xs:top-[68px] 2xs:h-[77%] 2xs:top-[75px] sm:h-[90%] sm:top-[60px]" onClick={handleClick}>
-                    <Map state={state} />
+                    <Map state={state} position={position} />
                 </div>
                 {isVisible ? <div className="flex justify-between gap-3 py-4 px-2 z-[9999] fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#C9C9C9" onClick={handleHome} />
