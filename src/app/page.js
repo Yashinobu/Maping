@@ -19,8 +19,8 @@ export default function Home() {
       </Head>
       <main className="flex h-screen flex-col items-center bg-white pt-[100px] pb-[100px]">
         <div className="flex flex-col h-[25%] w-full text-[#5C5F5D] items-center">
-          <img src="./maping_logo.png" />
-          <label className="text-[35px] font-bold">Maping</label>
+          <img src="./Maping＿logo-ai1.png" width={150} height={150} className="mt-8 sm:mt-0" />
+          {/* <label className="text-[35px] font-bold">Maping</label> */}
         </div>
         <label className="text-[14px] text-[#A5A5A5] mt-[100px]">利用規約</label>
         <div className="flex flex-col w-[80%] mt-[20px] gap-4">
