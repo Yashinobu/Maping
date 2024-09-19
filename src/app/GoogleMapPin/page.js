@@ -82,7 +82,7 @@ export default function Home() {
                         </button>
                     </div> */}
                 </div>
-                <div className="w-[95%] h-[80%] absolute left-[2.5%] top-[60px] xs:h-[64%] xs:top-[68px] 2xs:h-[77%] 2xs:top-[75px] sm:h-[90%] sm:top-[60px]">
+                <div className="w-[95%] h-[80%] absolute left-[2.5%] top-[60px] xs:h-[64%] xs:top-[68px] 2xs:h-[77%] 2xs:top-[75px] sm:h-[90%] md:h-[90%] sm:top-[60px]">
                     <Map state={true} />
                 </div>
                 {isVisible ? <div className="flex justify-between gap-3 py-4 px-2 z-[9999] fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
