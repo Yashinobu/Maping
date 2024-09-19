@@ -27,7 +27,6 @@ const Map = (Map) => {
         navigator.geolocation.getCurrentPosition(position => {
             const { latitude, longitude } = position.coords;
             setInitialPosition([latitude, longitude]);
-            setSelectedPosition([latitude, longitude]);
         });
     }, []);
 
@@ -84,7 +83,7 @@ const Map = (Map) => {
     }
     return (
         <MapContainer
-            center={selectedPosition}
+            center={selectedPosition || initialPosition}
             zoom={zoom}
             style={{ height: "100%", width: "100%" }}
         >
