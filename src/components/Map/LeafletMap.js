@@ -11,9 +11,9 @@ import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/solid";
 
 
 const Map = (Map) => {
-    const { zoom = 12, state, position } = Map
-    const [initialPosition, setInitialPosition] = useState(position);
-    const [selectedPosition, setSelectedPosition] = useState(position);
+    const { zoom = 0, state } = Map
+    const [initialPosition, setInitialPosition] = useState([12, 12]);
+    const [selectedPosition, setSelectedPosition] = useState([12, 12]);
     const userData = [
         { name: 'Yuki', age: 25, hobby: 'Music, Book...', url: '/user.jpg' },
         { name: 'Nasuyi', age: 22, hobby: 'TV, Resturant...', url: '/user1.jpg' },
@@ -27,6 +27,7 @@ const Map = (Map) => {
         navigator.geolocation.getCurrentPosition(position => {
             const { latitude, longitude } = position.coords;
             setInitialPosition([latitude, longitude]);
+            setSelectedPosition([latitude, longitude]);
         });
     }, []);
 
@@ -57,6 +58,8 @@ const Map = (Map) => {
 
         const map = useMapEvents({
             click(e) {
+                console.log("Current location1", e.latlng.lat, e.latlng.lng)
+
                 setSelectedPosition([
                     e.latlng.lat,
                     e.latlng.lng
@@ -83,7 +86,8 @@ const Map = (Map) => {
     }
     return (
         <MapContainer
-            center={selectedPosition || initialPosition}
+            position={selectedPosition}
+            center={selectedPosition}
             zoom={zoom}
             style={{ height: "100%", width: "100%" }}
         >
