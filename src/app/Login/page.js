@@ -60,7 +60,7 @@ export default function Login() {
             <Head>
                 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
             </Head>
-            {!session ? <main className="flex h-screen flex-col items-center bg-white text-[#5C5F5D]">
+            <main className="flex h-screen flex-col items-center bg-white text-[#5C5F5D]">
                 <div className="bg-[#A5A5A5] w-full h-[130px] flex flex-col items-center py-8">
                     <label className="text-[#FBE027] text-[30px] ">ログイン</label>
                     <label className="text-white text-[13px] mt-[-10px]">Login</label>
@@ -86,7 +86,7 @@ export default function Login() {
                     <button className="bg-gradient-to-l from-[#FCEE21] via-[#FBD42B] to-[#FBB03B] text-[#707070] text-[18px] px-[32px] font-bold py-[5px] drop-shadow-[0_2px_2px_rgba(0,0,0,0.25)] rounded-md mt-9" onClick={() => handleLoginClick(phone, password)}>ログイン</button>
                 </div>
 
-            </main> : <Home />}
+            </main>
 
         </>
     );
