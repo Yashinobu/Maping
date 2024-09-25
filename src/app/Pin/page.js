@@ -108,13 +108,13 @@ export default function Home() {
                 <div className="fixed z-[100] h-[60px] bg-white w-full drop-shadow-lg border-b-solid border-b-[2px] border-b-[#00000029]">
                     <ArrowLeftIcon className="absolute top-2 left-2" width={30} height={30} />
                     <div className="flex place-content-center w-full gap-2">
-                        <label className="text-[#5C5F5D] font-bold text-[32px]">PIN</label>
+                        <label className="text-[#5C5F5D] font-bold text-[25px] pt-2">PIN</label>
                     </div>
                 </div>
                 <div className="flex flex-col w-full bg-white px-2 mt-[60px] sm:mt-[40px] pt-7 sm:pt-7 pb-3">
                     <div className="flex justify-center">
-                        <button className="bg-[#FAFB64] text-[16px] rounded-[100px] px-4 py-2 h-full mr-[-40px] z-[50]">PINをさす</button>
-                        <button className="bg-white text-[16px] rounded-[100px] pl-12 pr-4 py-2 h-full z-[40] border-y-solid border-y-[2px] border-y-[#EEEEEE] border-r-solid border-r-[2px] border-r-[#EEEEEE]">PINをみる</button>
+                        <button className="bg-[#FAFB64] text-[13px] rounded-[100px] px-4 py-2 h-full mr-[-40px] z-[50]">PINをさす</button>
+                        <button className="bg-white text-[13px] rounded-[100px] pl-12 pr-4 py-2 h-full z-[40] border-y-solid border-y-[2px] border-y-[#EEEEEE] border-r-solid border-r-[2px] border-r-[#EEEEEE]">PINをみる</button>
                     </div>
                     <div className="flex flex-col justify-center gap-4 mt-4 sm:mt-2 w-full h-[115px] sm:h-[105px] sm:h-[100px] rounded-2xl shadow-2xl shadow-[#00000029] py-2">
                         <label className="text-[19px] text-[#5C5F5D] text-center">Date</label>
@@ -142,7 +142,7 @@ export default function Home() {
                         </button>
                     </div>
                 </div>
-                {isVisible ? <div className="flex justify-between gap-3 z-100 py-4 px-2 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
+                {isVisible ? <div className="flex justify-between gap-3 z-100 py-4 px-4 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#C9C9C9" onClick={handleHome} />
                     <button onClick={handlePin}><PinIcon width={40} height={40} color="#EEEE54" /></button>
                     <HeartIcon width={40} height={40} color="#C9C9C9" onClick={handleFavourite} />

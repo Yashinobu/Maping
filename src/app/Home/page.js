@@ -89,7 +89,7 @@ export default function Home() {
                 <div className="fixed z-[100] h-[60px] bg-white w-full drop-shadow-lg border-b-solid border-b-[2px] border-b-[#00000029]">
                     <MagnifyingGlassIcon className="absolute top-2 left-2" width={30} height={30} />
                     <div className="flex place-content-center w-full gap-2">
-                        <img src="./Maping＿logo-ai.png" width={150} height={60} className="p-2" />
+                        <img src="./Maping＿logo-ai.png" width={120} height={60} className="p-2" />
                         {/* <label className="text-[#5C5F5D] font-bold text-[32px]">Maping</label> */}
                     </div>
                 </div>
@@ -97,7 +97,7 @@ export default function Home() {
                     <div className="flex justify-between gap-4">
                         <div className="relative w-[46%] h-[195px] sm:h-[120px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color1} onClick={() => handleOnClick(1)} ></HeartIcon>
-                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 sm:p-5 mt-[-20px] sm:mt-[-15px]" />
+                            <img src="./user.jpg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px] opacity-100">Yamada Ruske</label>
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
@@ -133,7 +133,7 @@ export default function Home() {
                     <div className="flex justify-between gap-4 mt-3">
                         <div className="relative w-[46%] h-[195px] sm:h-[120px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color5} onClick={() => handleOnClick(5)}></HeartIcon>
-                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 sm:p-5 mt-[-20px] sm:mt-[-15px]" />
+                            <img src="./user4.jpg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px] opacity-100">Yamada Ruske</label>
                                 <label className="text-[12px] opacity-100">Book, Music...</label>
@@ -141,7 +141,7 @@ export default function Home() {
                         </div>
                         <div className="relative w-[46%] h-[195px] sm:h-[120px] bg-[#EEEEEE] rounded-lg">
                             <HeartIcon className="absolute top-2 right-2" width={30} height={30} color={color6} onClick={() => handleOnClick(6)}></HeartIcon>
-                            <img src="./guide1.svg" className="rounded-md w-full h-full p-10 sm:p-5 mt-[-20px] sm:mt-[-15px]" />
+                            <img src="./user5.jpg" className="rounded-md w-full h-full" />
                             <div className="text-white flex flex-col bg-gradient-to-b from-slate-900/25 to-slate-500/25 rounded-b-md px-[5px] w-full absolute bottom-0">
                                 <label className="text-[16px]">Tomo Yuki</label>
                                 <label className="text-[12px]">Swim, Drive...</label>
@@ -149,7 +149,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                {isVisible ? <div className="flex justify-between gap-3 py-4 px-2 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
+                {isVisible ? <div className="flex justify-between gap-3 py-4 px-4 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#EEEE54" />
                     <button onClick={handlePin}><PinIcon width={40} height={40} color="#C9C9C9" /></button>
                     <HeartIcon width={40} height={40} color="#C9C9C9" onClick={handleFavourite} />
