@@ -66,13 +66,13 @@ export default function CurrentMap() {
                     <ArrowLeftIcon className="absolute top-2 left-2" width={30} height={30} />
                     <div className="flex place-content-center w-full gap-2">
                         <MapPinIcon width={30} />
-                        <label className="text-[#5C5F5D] font-bold text-[32px]">現在地周辺</label>
+                        <label className="text-[#5C5F5D] font-bold text-[25px] pt-2">現在地周辺</label>
                     </div>
                 </div>
                 <div className="flex flex-col w-full bg-transparent px-2 mt-[60px] z-[9999] pt-7 pb-3">
                     <div className="flex justify-center">
-                        <button className="bg-[#FAFB64] text-[16px] rounded-[100px] px-4 py-2 h-full mr-[-40px] z-[50]">PINをさす</button>
-                        <button className="bg-white text-[16px] rounded-[100px] pl-12 pr-4 py-2 h-full z-[40] border-y-solid border-y-[2px] border-y-[#EEEEEE] border-r-solid border-r-[2px] border-r-[#EEEEEE]">PINをみる</button>
+                        <button className="bg-[#FAFB64] text-[13px] rounded-[100px] px-4 py-2 h-full mr-[-40px] z-[50]">PINをさす</button>
+                        <button className="bg-white text-[13px] rounded-[100px] pl-12 pr-4 py-2 h-full z-[40] border-y-solid border-y-[2px] border-y-[#EEEEEE] border-r-solid border-r-[2px] border-r-[#EEEEEE]">PINをみる</button>
                     </div>
 
                     <div className="flex justify-center mt-5">
@@ -84,7 +84,7 @@ export default function CurrentMap() {
                 <div className="w-[95%] h-[100%] absolute left-[2.5%] top-[60px] xs:h-[64%] xs:top-[68px] 2xs:h-[77%] 2xs:top-[75px] sm:h-[90%] md:h-[90%] sm:top-[60px]" onClick={handleClick}>
                     <Map state={state} />
                 </div>
-                {isVisible ? <div className="flex justify-between gap-3 py-4 px-2 z-[9999] fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
+                {isVisible ? <div className="flex justify-between gap-3 py-4 px-4 z-[9999] fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} color="#C9C9C9" onClick={handleHome} />
                     <button><PinIcon width={40} height={40} color="#EEEE54" /></button>
                     <HeartIcon width={40} height={40} color="#C9C9C9" onClick={handleFavourite} />

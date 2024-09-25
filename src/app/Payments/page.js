@@ -201,7 +201,7 @@ export default function Payment() {
                     </div>
                 </div>
 
-                {isVisible ? <div className="flex justify-between gap-3 py-2 px-2 fixed bottom-0 w-full bg-white shadow-black shadow-lg h-[70px]">
+                {isVisible ? <div className="flex justify-between gap-3 py-2 px-4 fixed bottom-0 w-full bg-white shadow-black shadow-lg h-[70px]">
                     <HomeIcon width={40} height={40} onClick={handleGoHome}></HomeIcon>
                     <UserGroupIcon width={40} height={40}></UserGroupIcon>
                     <StarIcon width={40} height={40}></StarIcon>
