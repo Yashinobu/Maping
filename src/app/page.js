@@ -6,8 +6,12 @@ export default function Home() {
 
   const router = useRouter();
 
-  const handleClick = (e) => {
-    console.log(e.target.value)
+  const handleLogin = (e) => {
+    e.preventDefault()
+    router.push('./Login');
+  }
+
+  const handleRegister = (e) => {
     e.preventDefault()
     router.push('./Home');
   }
@@ -17,17 +21,30 @@ export default function Home() {
       <Head>
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Head>
-      <main className="flex h-screen flex-col items-center bg-white pt-[100px] pb-[100px]">
-        <div className="flex flex-col h-[25%] w-full text-[#5C5F5D] items-center">
-          <img src="./Maping＿logo-ai1.png" width={150} height={150} className="mt-8 sm:mt-0" />
-          {/* <label className="text-[35px] font-bold">Maping</label> */}
+      <main className="flex flex-col h-screen items-center bg-white py-3">
+        <div className="w-full px-2 justify-end flex gap-2">
+          <button className="text-[#555555] px-[12px] py-2 drop-shadow-md bg-gradient-to-t from-[#FCEE21] via-[#FBD42B] to-[#FBB03B] w-[91px] h-[35px] text-[12px] font-bold" onClick={handleRegister}>無料登録</button>
+          <button className="text-[#555555] px-[12px] py-2 drop-shadow-md bg-[#E8E4E4] w-[91px] h-[35px] text-[12px]" onClick={handleLogin}>ログイン</button>
         </div>
-        <label className="text-[14px] text-[#A5A5A5] mt-[100px]">利用規約</label>
-        <div className="flex flex-col w-[80%] mt-[20px] gap-4">
-          <button className="bg-[#FAFB64] text-[#707070] text-[18px] px-[32px] font-bold py-[10px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-full">アカウントを作成する</button>
-          <button className="bg-[#A5A5A5] text-[#FFFFFF] text-[18px] px-[32px] font-bold py-[10px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-full" onClick={handleClick}>ログイン</button>
+        <div className="w-full px-5 flex flex-col justify-start gap-1 pt-2">
+          <label className="text-black text-[35px] font-bold">仕事帰り、</label>
+          <label className="text-black text-[35px] font-bold">旅先でも、</label>
+          <label className="text-black text-[35px] font-bold">上質な出会いを。</label>
+          <div className="flex">
+            <img src="./banner.png" />
+          </div>
         </div>
-        <label className="text-[#A5A5A5] mt-[10px] text-[14px]">ログインできない場合はこちら-</label>
+        <div className="flex flex-col w-full px-5 z-50 bg-white">
+          <label className="text-[#292929] text-[20px]">まずは近くのカフェで</label>
+          <label className="text-[#292929]  text-[20px]">お茶できる方を探してみませんか？</label>
+          <div className="w-full flex flex-col items-center">
+            <div className="w-[70%] flex gap-2">
+              <button className="text-white bg-black w-[122px] h-[52px] rounded-lg">男性</button>
+              <button className="text-black bg-gradient-to-r from-[#FCEE21] via-[#FBD42B] to-[#FBB03B] w-[122px] h-[52px] rounded-lg">女性</button>
+            </div>
+            <label className="text-black">※未満の方はご利用いただけません</label>
+          </div>
+        </div>
       </main>
     </>
   );
