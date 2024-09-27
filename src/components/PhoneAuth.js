@@ -60,7 +60,7 @@ export default function PhoneAuth() {
 
     const verifyCode = async () => {
         try {
-            const response = await axios.post('https://13.115.207.73:5000/api/verifyPhone', { verificationId, code });
+            const response = await axios.post('http://13.115.207.73:5000/api/verifyPhone', { verificationId, code });
             const { customToken } = response.data;
 
             await auth.signInWithCustomToken(customToken);
@@ -91,7 +91,7 @@ export default function PhoneAuth() {
         const phone = "+" + phoneNumber
         const password = code
         try {
-            const response = await axios.post('https://13.115.207.73:5000/auth/register', { phone, password });
+            const response = await axios.post('http://13.115.207.73:5000/auth/register', { phone, password });
             const { userInfo } = response.data;
             console.log(userInfo)
             router.push('./Home')
