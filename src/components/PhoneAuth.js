@@ -91,7 +91,7 @@ export default function PhoneAuth() {
         const phone = "+" + phoneNumber
         const password = code
         try {
-            const response = await axios.post('https://mapping-backend.com:5000/auth/register', { phone, password });
+            const response = await axios.post('mapping-backend.com:5000/auth/register', { phone, password });
             const { userInfo } = response.data;
             console.log(userInfo)
             router.push('./Home')
