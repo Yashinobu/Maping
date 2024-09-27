@@ -13,7 +13,7 @@ export default function Home() {
 
   const handleRegister = (e) => {
     e.preventDefault()
-    router.push('./Home');
+    router.push('./Register');
   }
 
   return (
