@@ -7,6 +7,7 @@ import Home from "@/components/Home";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 export default function Login() {
 
@@ -39,21 +40,23 @@ export default function Login() {
         setPhone(phone)
     }
 
-    const handleLoginClick = (phone, password) => {
-        console.log(phone)
-        const flag = users.some((user) => user.phone === phone)
-        const flag1 = users.some((user) => user.password === password)
-        if (flag == false) {
-            alert('You are new member')
-            return setResult({ flag: flag, msg: 'You are new member' })
+    const handleLoginClick = async (phone, password) => {
+        const pNumber = "+" + phone
+        try {
+            const response = await axios.post('http://13.115.207.73:5000/auth/login', { phone: pNumber, password: password });
+            const { data } = response.data;
+            alert(response.data.message)
+            setResult({ flag: true, msg: 'Success!' })
+
+            router.push('./Home')
+        } catch (error) {
+            console.log("Error: ", error)
+            alert(error.response.data.error)
         }
-        if (flag1 === false) {
-            alert('Password incorrect')
-            return setResult({ flag: flag, msg: 'Password incorrect!' })
-        }
-        alert("Success!")
-        setResult({ flag: true, msg: 'Success!' })
-        return router.push('./Home')
+    }
+
+    const handleRegister = () => {
+        router.push('./Register')
     }
     return (
         <>
@@ -84,10 +87,10 @@ export default function Login() {
                         {passFlag ? <label className="absolute bottom-2 text-[10px] text-[#f30707]">Please input your password</label> : null}
                     </div>
                     <button className="bg-gradient-to-l from-[#FCEE21] via-[#FBD42B] to-[#FBB03B] text-[#707070] text-[18px] px-[32px] font-bold py-[5px] drop-shadow-[0_2px_2px_rgba(0,0,0,0.25)] rounded-md mt-9" onClick={() => handleLoginClick(phone, password)}>ログイン</button>
+                    <label className="text-sky-500 text-center text-[10px]" onClick={handleRegister}>無料登録?</label>
                 </div>
 
             </main>
-
         </>
     );
 }
