@@ -43,7 +43,7 @@ export default function Login() {
     const handleLoginClick = async (phone, password) => {
         const pNumber = "+" + phone
         try {
-            const response = await axios.post('https://57.181.114.135:5000/auth/login', { phone: pNumber, password: password });
+            const response = await axios.post('http://57.181.114.135:5000/auth/login', { phone: pNumber, password: password });
             const { data } = response.data;
             alert(response.data.message)
             setResult({ flag: true, msg: 'Success!' })
