@@ -80,6 +80,10 @@ export default function Home() {
         router.push('./Message')
     }
 
+    const handleGoSearch = () => {
+        console.log("aaaaa")
+    }
+
     return (
         <>
             <Head>
@@ -87,7 +91,7 @@ export default function Home() {
             </Head>
             <main className="flex h-screen flex-col items-center bg-white pb-2 text-[#5C5F5D]">
                 <div className="fixed z-[100] h-[60px] bg-white w-full drop-shadow-lg border-b-solid border-b-[2px] border-b-[#00000029]">
-                    <MagnifyingGlassIcon className="absolute top-2 left-2" width={30} height={30} />
+                    <MagnifyingGlassIcon className="absolute top-2 left-2" width={30} height={30} onClick={handleGoSearch} />
                     <div className="flex place-content-center w-full gap-2">
                         <img src="./Maping＿logo-ai.png" width={120} height={60} className="p-2" />
                         {/* <label className="text-[#5C5F5D] font-bold text-[32px]">Maping</label> */}
