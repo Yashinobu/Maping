@@ -81,7 +81,7 @@ export default function Home() {
     }
 
     const handleGoSearch = () => {
-        console.log("aaaaa")
+        router.push('./Search')
     }
 
     return (

@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 const flowbite = require("flowbite-react/tailwind");
+const { nextui } = require("@nextui-org/react");
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/tailwind-datepicker-react/dist/**/*.js",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -25,5 +27,5 @@ module.exports = {
       md: { 'max': '390px' }
     },
   },
-  plugins: [],
+  plugins: [nextui()],
 };
