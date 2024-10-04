@@ -43,3 +43,7 @@ body {
 [data-nextjs-toast] {
   display: none !important;
 }
+
+.marker-image {
+  width: 45px !important;
+}

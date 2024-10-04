@@ -12,6 +12,11 @@ export default function Home() {
     const router = useRouter()
 
     const [isVisible, setIsVisible] = useState(true);
+    const [age, setAge] = useState(0)
+    const [tall, setTall] = useState(0)
+    const [bodyType, setBodyType] = useState('all')
+    const [salary, setSalary] = useState('all')
+    const [distance, setDistance] = useState(0)
 
     const handleScroll = useCallback(() => {
         const scroll = window.scrollY;
@@ -43,6 +48,38 @@ export default function Home() {
         router.push('./Message')
     }
 
+    const handleChangeAge = (e) => {
+        setAge(e.target.value)
+    }
+
+    const handleChangeTall = (e) => {
+        setTall(e.target.value)
+    }
+
+    const handleChangeBodyType = (e) => {
+        setBodyType(e.target.value)
+    }
+
+    const handleChangeSalary = (e) => {
+        setSalary(e.target.value)
+    }
+
+    const handleChangeDistance = (value) => {
+        setDistance(value)
+    }
+
+    const hanldeSearchConditionInit = () => {
+        setAge(0)
+        setTall(0)
+        setBodyType('all')
+        setSalary('all')
+        setDistance(0)
+    }
+
+    const handleSearchSubmit = () => {
+        router.push(`./Search/Result/${age}/${tall}/${bodyType}/${salary}/${distance}`)
+    }
+
     return (
         <>
             <Head>
@@ -60,46 +97,46 @@ export default function Home() {
                     <div className="w-full border-b-solid border-b-[#EEEEEE] border-b-[1px] h-[70px] px-5">
                         <div className="flex justify-between gap-2 w-full">
                             <lable className="text-[#5C5F5D] text-[14px] py-6">年齡</lable>
-                            <select>
-                                <option>こだわらない</option>
-                                <option>20歳 ~ 30歳</option>
-                                <option>30歳 ~ 40歳</option>
-                                <option>40歳 ~ 50歳</option>
+                            <select onChange={handleChangeAge} value={age}>
+                                <option value={0}>こだわらない</option>
+                                <option value={20}>20歳 ~ 30歳</option>
+                                <option value={30}>30歳 ~ 40歳</option>
+                                <option value={40}>40歳 ~ 50歳</option>
                             </select>
                         </div>
                     </div>
                     <div className="w-full border-b-solid border-b-[#EEEEEE] border-b-[1px] h-[70px] px-5">
                         <div className="flex justify-between gap-2 w-full">
                             <lable className="text-[#5C5F5D] text-[14px] py-6">身長</lable>
-                            <select>
-                                <option>こだわらない</option>
-                                <option>150 ~ 160cm</option>
-                                <option>160 ~ 170cm</option>
-                                <option>170 ~ 180cm</option>
-                                <option>180cm ~ </option>
+                            <select onChange={handleChangeTall} value={tall}>
+                                <option value={0}>こだわらない</option>
+                                <option value={150}>150 ~ 160cm</option>
+                                <option value={160}>160 ~ 170cm</option>
+                                <option value={170}>170 ~ 180cm</option>
+                                <option value={180}>180cm ~ </option>
                             </select>
                         </div>
                     </div>
                     <div className="w-full border-b-solid border-b-[#EEEEEE] border-b-[1px] h-[70px] px-5">
                         <div className="flex justify-between gap-2 w-full">
                             <lable className="text-[#5C5F5D] text-[14px] py-6">体型</lable>
-                            <select>
-                                <option>こだわらない</option>
-                                <option>マッスル</option>
-                                <option>ほっそりした</option>
-                                <option>ノーマル</option>
-                                <option>太った</option>
+                            <select onChange={handleChangeBodyType} value={bodyType}>
+                                <option value={'all'}>こだわらない</option>
+                                <option value={'slender'}>マッスル</option>
+                                <option value={'normal'}>ほっそりした</option>
+                                <option value={'flat0'}>ノーマル</option>
+                                <option value={'flat1'}>太った</option>
                             </select>
                         </div>
                     </div>
                     <div className="w-full border-b-solid border-b-[#EEEEEE] border-b-[1px] h-[70px] px-5">
                         <div className="flex justify-between gap-2 w-full">
                             <lable className="text-[#5C5F5D] text-[14px] py-6">年収</lable>
-                            <select>
-                                <option>こだわらない</option>
-                                <option>高い</option>
-                                <option>通常</option>
-                                <option>低い</option>
+                            <select onChange={handleChangeSalary} value={salary}>
+                                <option value={'all'}>こだわらない</option>
+                                <option value={'high'}>高い</option>
+                                <option value={'normal'}>通常</option>
+                                <option value={'low'}>低い</option>
                             </select>
                         </div>
                     </div>
@@ -115,11 +152,13 @@ export default function Home() {
                             className="max-w-md"
                             color={"warning"}
                             size="sm"
+                            onChange={(value) => handleChangeDistance(value)}
+                            value={distance}
                         />
                     </div>
                     <div className="w-full justify-center flex gap-2 px-5 py-9">
-                        <button className="px-3 py-2 bg-[#C9C9C9] rounded-md drop-shadow-lg text-[#5C5F5D]">すべてリセット</button>
-                        <button className="px-3 py-2 bg-[#FAFB64] rounded-md drop-shadow-lg text-[#5C5F5D]">この条件で検索</button>
+                        <button className="px-3 py-2 bg-[#C9C9C9] rounded-md drop-shadow-lg text-[#5C5F5D]" onClick={hanldeSearchConditionInit}>すべてリセット</button>
+                        <button className="px-3 py-2 bg-[#FAFB64] rounded-md drop-shadow-lg text-[#5C5F5D]" onClick={handleSearchSubmit}>この条件で検索</button>
                     </div>
                 </div>
                 {isVisible ? <div className="flex justify-between gap-3 py-4 px-4 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
