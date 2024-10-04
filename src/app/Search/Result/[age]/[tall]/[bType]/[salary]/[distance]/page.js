@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import MessageIcon from "@/components/Icon/MessageIcon";
 import PinIcon from "@/components/Icon/PinIcon";
 import dynamic from "next/dynamic";
+import { useParams } from 'next/navigation'
 
 export default function SearchResult() {
 
@@ -13,6 +14,9 @@ export default function SearchResult() {
 
     const [isVisible, setIsVisible] = useState(true);
     const [state, setState] = useState(true);
+
+    const params = useParams()
+    console.log(params)
 
     const handleScroll = useCallback(() => {
         const scroll = window.scrollY;
@@ -72,7 +76,7 @@ export default function SearchResult() {
                 </div>
                 <div className="flex flex-col w-full bg-white px-5 mt-[60px] pt-3 pb-3">
                     <div className="w-[95%] h-[100%] absolute left-[2.5%] top-[60px] xs:h-[64%] xs:top-[68px] 2xs:h-[77%] 2xs:top-[75px] sm:h-[90%] md:h-[90%] sm:top-[60px]">
-                        <Map state={state} />
+                        <Map state={state} age={params.age} tall={params.tall} bodyStyle={params.bType} salary={params.salary} distance={params.distance} />
                     </div>
                 </div>
                 {isVisible ? <div className="flex z-[9999] justify-between gap-3 py-4 px-4 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">

@@ -16,13 +16,6 @@ export default function Login() {
 
     const router = useRouter();
 
-    const users = [
-        { phone: '818088459635', password: 'matching1' },
-        { phone: '818088459636', password: 'matching2' },
-        { phone: '818088459637', password: 'matching3' },
-        { phone: '818088459638', password: 'matching4' }
-    ]
-
     const [passFlag, setPassFlag] = useState(false);
     const [phoneFlag, setPhoneFlag] = useState(false);
     const [password, setPassword] = useState();
@@ -47,6 +40,8 @@ export default function Login() {
             const { data } = response.data;
             alert(response.data.message)
             setResult({ flag: true, msg: 'Success!' })
+            console.log(response.data)
+            localStorage.setItem("phoneId", response.data.existingMember._id)
 
             router.push('./Home')
         } catch (error) {

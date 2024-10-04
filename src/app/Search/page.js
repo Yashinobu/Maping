@@ -15,7 +15,7 @@ export default function Home() {
     const [age, setAge] = useState(0)
     const [tall, setTall] = useState(0)
     const [bodyType, setBodyType] = useState('all')
-    const [salary, setSalary] = useState('all')
+    const [salary, setSalary] = useState(0)
     const [distance, setDistance] = useState(0)
 
     const handleScroll = useCallback(() => {
@@ -133,10 +133,10 @@ export default function Home() {
                         <div className="flex justify-between gap-2 w-full">
                             <lable className="text-[#5C5F5D] text-[14px] py-6">年収</lable>
                             <select onChange={handleChangeSalary} value={salary}>
-                                <option value={'all'}>こだわらない</option>
-                                <option value={'high'}>高い</option>
-                                <option value={'normal'}>通常</option>
-                                <option value={'low'}>低い</option>
+                                <option value={0}>こだわらない</option>
+                                <option value={30000}>高い</option>
+                                <option value={20000}>通常</option>
+                                <option value={10000}>低い</option>
                             </select>
                         </div>
                     </div>

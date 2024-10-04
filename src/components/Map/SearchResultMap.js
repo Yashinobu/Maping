@@ -10,10 +10,17 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import axios from "axios";
 
 
 const SearchResultMap = (Map) => {
-    const { zoom = 12, state } = Map
+    const { zoom = 12, state, age, tall, bodyStyle, salary, distance } = Map
+
+    const searchResult = axios.post('http://57.181.114.135:5000/profile/get-members', { phoneId: localStorage.getItem('phoneId'), tall: tall, bodyStyle: bodyStyle, salary: salary, age: age, distance: distance })
+    console.log(searchResult)
+    // useEffect(() => {
+    // }, [])
+
     const [initialPosition, setInitialPosition] = useState([35.157545, 136.899904]);
     const [selectedPosition, setSelectedPosition] = useState([35.157545, 136.899904]);
     const userData = [
