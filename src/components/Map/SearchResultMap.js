@@ -1,6 +1,6 @@
 "use client"
 
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, Circle } from "react-leaflet";
 
 import L from 'leaflet';
 import ReactDOMServer from 'react-dom/server';
@@ -10,42 +10,31 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import axios from "axios";
 
 
 const SearchResultMap = (Map) => {
-    const { zoom = 12, state, age, tall, bodyStyle, salary, distance } = Map
+    const { zoom = 12, state, data, baseCoordinate, distance } = Map
+    console.log(data)
 
-    const searchResult = axios.post('http://57.181.114.135:5000/profile/get-members', { phoneId: localStorage.getItem('phoneId'), tall: tall, bodyStyle: bodyStyle, salary: salary, age: age, distance: distance })
-    console.log(searchResult)
-    // useEffect(() => {
-    // }, [])
+    const [initialPosition, setInitialPosition] = useState(baseCoordinate);
+    const [selectedPosition, setSelectedPosition] = useState(baseCoordinate);
 
-    const [initialPosition, setInitialPosition] = useState([35.157545, 136.899904]);
-    const [selectedPosition, setSelectedPosition] = useState([35.157545, 136.899904]);
-    const userData = [
-        { name: 'Yuki', age: 25, hobby: 'Music, Book...', url: '/user.jpg', coordinate: [35.157545, 136.899704] },
-        { name: 'Nasuyi', age: 22, hobby: 'TV, Resturant...', url: '/user1.jpg', coordinate: [35.127645, 136.990904] },
-        { name: 'Tomoda', age: 23, hobby: 'Swim, Game...', url: '/user2.jpg', coordinate: [35.155545, 136.999904] },
-        { name: 'Maya', age: 27, hobby: 'Dance, Yard...', url: '/user3.jpg', coordinate: [35.167545, 136.899944] }]
-
-    const [user, setUser] = useState(userData[0])
-    const [markers, setMarkers] = useState(userData)
+    const [markers, setMarkers] = useState(data)
 
     const customIcon = (image_url) => L.divIcon({
         html: ReactDOMServer.renderToStaticMarkup(<div className="h-[70px] w-[70px] relative">
-            <img src="/PIN_person.png" className="w-[70px] h-[70px] absolute top-0" />
-            <img src={image_url} className="rounded-[100px] w-[45px] h-[45px] absolute top-3 left-3 marker-image" />
+            <img src="/PIN_person.png" className="w-[70px] h-[70px] absolute top-[-65px] left-[-50px]" />
+            <img src={"/" + image_url} className="rounded-[100px] w-[45px] h-[45px] absolute top-[-53px] left-[-38px] marker-image" />
         </div>),
-        iconSize: [0, 0]
+        iconSize: [5, 5],
     })
 
     const Markers = () => {
 
         return (
-            markers.map((marker) => <Marker key={marker.coordinate[0]} position={marker.coordinate} icon={customIcon(marker.url)}><Popup className="absolute bottom-0 bg-[#FFFF54] text-[#5C5C5C]">
+            markers.map((marker, index) => <Marker key={marker.coordinate} position={marker.coordinate} icon={customIcon(marker.photo)}><Popup className="absolute bottom-0 bg-[#FFFF54] text-[#5C5C5C]">
                 <button className="flex w-[155px] h-[50px]">
-                    <Image src={marker.url} alt={marker.name} width={50} height={50} />
+                    <Image src={"/" + marker.photo} alt={marker.name} width={50} height={50} />
                     <div className="flex flex-col ml-[9px] items-start">
                         <label>{marker.name}</label>
                         <label>{marker.age}</label>
@@ -55,6 +44,7 @@ const SearchResultMap = (Map) => {
             </Popup></Marker>)
         )
     }
+    const fillBlueOptions = { fillColor: 'blue' }
 
     return (
         <MapContainer
@@ -62,7 +52,12 @@ const SearchResultMap = (Map) => {
             zoom={zoom}
             style={{ height: "100%", width: "100%" }}
         >
+            <Marker
+                position={baseCoordinate}>
+            </Marker>
             {state ? <Markers /> : null}
+            <Circle center={baseCoordinate} pathOptions={fillBlueOptions} radius={distance * 1000} />
+            {/* <Circle */}
 
             <TileLayer
                 attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

@@ -1,4 +1,5 @@
 'use client'
+import React from "react"
 import Head from "next/head";
 import { MagnifyingGlassIcon, HomeIcon, UserIcon, HeartIcon, ChatBubbleLeftRightIcon, ArrowLeftIcon } from '@heroicons/react/24/solid'
 import { useState, useEffect, useCallback } from "react";
@@ -7,7 +8,7 @@ import MessageIcon from "@/components/Icon/MessageIcon";
 import PinIcon from "@/components/Icon/PinIcon";
 import { Slider } from "@nextui-org/slider";
 
-export default function Home() {
+export default function Search() {
 
     const router = useRouter()
 
@@ -96,7 +97,7 @@ export default function Home() {
                 <div className="flex flex-col w-full bg-white mt-[60px] pt-3 pb-3">
                     <div className="w-full border-b-solid border-b-[#EEEEEE] border-b-[1px] h-[70px] px-5">
                         <div className="flex justify-between gap-2 w-full">
-                            <lable className="text-[#5C5F5D] text-[14px] py-6">年齡</lable>
+                            <label className="text-[#5C5F5D] text-[14px] py-6">年齡</label>
                             <select onChange={handleChangeAge} value={age}>
                                 <option value={0}>こだわらない</option>
                                 <option value={20}>20歳 ~ 30歳</option>
@@ -107,7 +108,7 @@ export default function Home() {
                     </div>
                     <div className="w-full border-b-solid border-b-[#EEEEEE] border-b-[1px] h-[70px] px-5">
                         <div className="flex justify-between gap-2 w-full">
-                            <lable className="text-[#5C5F5D] text-[14px] py-6">身長</lable>
+                            <label className="text-[#5C5F5D] text-[14px] py-6">身長</label>
                             <select onChange={handleChangeTall} value={tall}>
                                 <option value={0}>こだわらない</option>
                                 <option value={150}>150 ~ 160cm</option>
@@ -119,7 +120,7 @@ export default function Home() {
                     </div>
                     <div className="w-full border-b-solid border-b-[#EEEEEE] border-b-[1px] h-[70px] px-5">
                         <div className="flex justify-between gap-2 w-full">
-                            <lable className="text-[#5C5F5D] text-[14px] py-6">体型</lable>
+                            <label className="text-[#5C5F5D] text-[14px] py-6">体型</label>
                             <select onChange={handleChangeBodyType} value={bodyType}>
                                 <option value={'all'}>こだわらない</option>
                                 <option value={'slender'}>マッスル</option>
@@ -131,7 +132,7 @@ export default function Home() {
                     </div>
                     <div className="w-full border-b-solid border-b-[#EEEEEE] border-b-[1px] h-[70px] px-5">
                         <div className="flex justify-between gap-2 w-full">
-                            <lable className="text-[#5C5F5D] text-[14px] py-6">年収</lable>
+                            <label className="text-[#5C5F5D] text-[14px] py-6">年収</label>
                             <select onChange={handleChangeSalary} value={salary}>
                                 <option value={0}>こだわらない</option>
                                 <option value={30000}>高い</option>

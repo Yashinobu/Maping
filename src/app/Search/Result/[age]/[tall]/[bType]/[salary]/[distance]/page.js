@@ -7,6 +7,7 @@ import MessageIcon from "@/components/Icon/MessageIcon";
 import PinIcon from "@/components/Icon/PinIcon";
 import dynamic from "next/dynamic";
 import { useParams } from 'next/navigation'
+import axios from "axios";
 
 export default function SearchResult() {
 
@@ -14,24 +15,11 @@ export default function SearchResult() {
 
     const [isVisible, setIsVisible] = useState(true);
     const [state, setState] = useState(true);
+    const [data, setData] = useState([])
+    const [baseCoordinate, setBaseCoordinate] = useState([])
 
     const params = useParams()
     console.log(params)
-
-    const handleScroll = useCallback(() => {
-        const scroll = window.scrollY;
-
-        const shouldBeVisible = scroll <= 100;
-        if (shouldBeVisible === isVisible) return;
-        console.log(scroll, isVisible)
-        setIsVisible(shouldBeVisible);
-    }, [isVisible]);
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [handleScroll]);
-
 
     const handlePin = () => {
         router.push('./Pin')
@@ -52,6 +40,18 @@ export default function SearchResult() {
     const handleGoSearch = () => {
         router.push('./Search')
     }
+
+    useEffect(() => {
+        async function searchMembers() {
+            const response = await axios.post('http://57.181.114.135:5000/profile/get-members', { phoneId: localStorage.getItem('phoneId'), tall: params.tall, bodyStyle: params.bType, salary: params.salary, age: params.age, distance: params.distance })
+            const { data } = response
+            console.log(data)
+            console.log(data.baseCoordinate)
+            setBaseCoordinate(data?.baseCoordinate)
+            setData(data?.members)
+        }
+        searchMembers()
+    }, [])
 
     const Map = useMemo(() => dynamic(
         () => import('@/components/Map/SearchResultMap'),
@@ -76,7 +76,8 @@ export default function SearchResult() {
                 </div>
                 <div className="flex flex-col w-full bg-white px-5 mt-[60px] pt-3 pb-3">
                     <div className="w-[95%] h-[100%] absolute left-[2.5%] top-[60px] xs:h-[64%] xs:top-[68px] 2xs:h-[77%] 2xs:top-[75px] sm:h-[90%] md:h-[90%] sm:top-[60px]">
-                        <Map state={state} age={params.age} tall={params.tall} bodyStyle={params.bType} salary={params.salary} distance={params.distance} />
+                        {data.length > 0 ? < Map state={state} age={params.age} tall={params.tall} bodyStyle={params.bType} salary={params.salary} distance={params.distance} data={data} baseCoordinate={baseCoordinate} /> : null}
+
                     </div>
                 </div>
                 {isVisible ? <div className="flex z-[9999] justify-between gap-3 py-4 px-4 fixed bottom-0 w-full bg-[#A5A5A5] rounded-t-xl shadow-black shadow-lg h-[70px]">
