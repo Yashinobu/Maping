@@ -9,7 +9,7 @@ import NumberInput from './NumberInput';
 import SelectInput from './SelectInput';
 import TextAreaInput from './TextAreaInput';
 
-export default function UserInfo({ pNumber, password }) {
+export default function UserInfo({ pNumber, password, gender }) {
 
     const [nickname, setNickname] = useState("")
     const [birthday, setBirthday] = useState(new Date("1990-01-01"))
@@ -131,7 +131,7 @@ export default function UserInfo({ pNumber, password }) {
             const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${address}&key=${process.env.NEXT_PUBLIC_OPENCAGE_API_KEY}`)
             console.log(response.data.results[0])
 
-            const response1 = await axios.post('http://57.181.114.135:5000/auth/register', { phone, password, address, birthday: birthdayFormat, tall, bodyStyle: bType, salary, nickname, selfIntro, age, coordinate: [response.data.results[0].geometry.lat, response.data.results[0].geometry.lng], gender: 0, photo: "user.jpg" });
+            const response1 = await axios.post('http://57.181.114.135:5000/auth/register', { phone, password, address, birthday: birthdayFormat, tall, bodyStyle: bType, salary, nickname, selfIntro, age, coordinate: [response.data.results[0].geometry.lat, response.data.results[0].geometry.lng], gender: gender, photo: "user.jpg" });
             console.log(response1.data)
             setCoordinate([response.data.results[0].geometry.lat, response.data.results[0].geometry.lng])
         } catch (error) {

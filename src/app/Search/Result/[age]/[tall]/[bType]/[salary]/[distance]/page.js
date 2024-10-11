@@ -19,7 +19,6 @@ export default function SearchResult() {
     const [baseCoordinate, setBaseCoordinate] = useState([])
 
     const params = useParams()
-    console.log(params)
 
     const handlePin = () => {
         router.push('./Pin')

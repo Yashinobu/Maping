@@ -7,7 +7,7 @@ import "react-phone-input-2/lib/bootstrap.css";
 import { useRouter } from "next/navigation";
 import UserInfo from './UserInfo';
 
-export default function PhoneAuth() {
+export default function PhoneAuth({ gender }) {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [code, setCode] = useState('');
     const [codeFlag, setCodeFlag] = useState(false);
@@ -127,7 +127,7 @@ export default function PhoneAuth() {
 
 
             {/* Verification code input */}
-            {verificationId ? userInfoFlag ? <UserInfo pNumber={phoneNumber} password={code} /> : <div className='flex flex-col relative'>
+            {verificationId ? userInfoFlag ? <UserInfo pNumber={phoneNumber} password={code} gender={gender} /> : <div className='flex flex-col relative'>
                 <div className='flex flex-col relative gap-1'>
                     <label className="font-bold">パスワード</label>
                     <input
