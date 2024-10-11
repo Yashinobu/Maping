@@ -44,8 +44,6 @@ export default function SearchResult() {
         async function searchMembers() {
             const response = await axios.post('http://57.181.114.135:5000/profile/get-members', { phoneId: localStorage.getItem('phoneId'), tall: params.tall, bodyStyle: params.bType, salary: params.salary, age: params.age, distance: params.distance })
             const { data } = response
-            console.log(data)
-            console.log(data.baseCoordinate)
             setBaseCoordinate(data?.baseCoordinate)
             setData(data?.members)
         }

@@ -27,8 +27,6 @@ export default function Login() {
     }
 
     const handlePhoneChange = (phone) => {
-        console.log(phone)
-        console.log(phone.length <= 3 ? true : false)
         setPhoneFlag(phone.length <= 3 ? true : false)
         setPhone(phone)
     }
@@ -40,7 +38,6 @@ export default function Login() {
             const { data } = response.data;
             alert(response.data.message)
             setResult({ flag: true, msg: 'Success!' })
-            console.log(response.data)
             localStorage.setItem("phoneId", response.data.existingMember._id)
 
             router.push('./Home')

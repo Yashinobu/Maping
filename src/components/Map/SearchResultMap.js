@@ -14,7 +14,6 @@ import Image from "next/image";
 
 const SearchResultMap = (Map) => {
     const { zoom = 12, state, data, baseCoordinate, distance } = Map
-    console.log(data)
 
     const [initialPosition, setInitialPosition] = useState(baseCoordinate);
     const [selectedPosition, setSelectedPosition] = useState(baseCoordinate);

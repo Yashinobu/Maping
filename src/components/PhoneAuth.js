@@ -44,9 +44,7 @@ export default function PhoneAuth({ gender }) {
             const pNumber = "+" + phoneNumber
             const appVerifier = window.recaptchaVerifier;
             const confirmationResult = await signInWithPhoneNumber(auth, pNumber.trim(), appVerifier);
-            console.log('VerificationId', confirmationResult.verificationId);
             setVerificationId(confirmationResult.verificationId);
-            console.log('Code send');
 
         } catch (error) {
             if (error.code === 'auth/internal-error') {
@@ -99,7 +97,6 @@ export default function PhoneAuth({ gender }) {
         try {
             const response = await axios.post('http://57.181.114.135:5000/auth/register', { phone, password });
             const { userInfo } = response.data;
-            console.log(userInfo)
             router.push('./Home')
         } catch (error) {
             console.log("Error: ", error)

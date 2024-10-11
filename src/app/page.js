@@ -7,13 +7,11 @@ export default function Home() {
 
   const router = useRouter();
 
-  const handleLogin = (e) => {
-    e.preventDefault()
+  const handleLogin = () => {
     router.push('./Login');
   }
 
   const handleRegister = (e) => {
-    console.log(e)
     router.push(`./Register/${e}`);
   }
 
@@ -23,10 +21,6 @@ export default function Home() {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Head>
       <main className="flex flex-col h-screen items-center bg-white py-3">
-        {/* <div className="w-full px-2 justify-end flex gap-2">
-          <button className="text-[#555555] px-[12px] py-2 drop-shadow-md bg-gradient-to-t from-[#FCEE21] via-[#FBD42B] to-[#FBB03B] w-[91px] h-[35px] text-[12px] font-bold" onClick={handleRegister}>無料登録</button>
-          <button className="text-[#555555] px-[12px] py-2 drop-shadow-md bg-[#E8E4E4] w-[91px] h-[35px] text-[12px]" onClick={handleLogin}>ログイン</button>
-        </div> */}
         <div className="w-full px-5 flex flex-col justify-start gap-1 pt-2">
           <label className="text-[#292929] text-[35px] font-bold font-mincho">仕事帰り、</label>
           <label className="text-[#292929] text-[35px] font-bold font-mincho">旅先でも、</label>

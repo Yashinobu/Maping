@@ -11,6 +11,8 @@ import TextAreaInput from './TextAreaInput';
 
 export default function UserInfo({ pNumber, password, gender }) {
 
+    const router = useRouter()
+
     const [nickname, setNickname] = useState("")
     const [birthday, setBirthday] = useState(new Date("1990-01-01"))
     const [birthdayFormat, setBirthdayFormat] = useState("")
@@ -19,7 +21,6 @@ export default function UserInfo({ pNumber, password, gender }) {
     const [bType, setBType] = useState("")
     const [salary, setSalary] = useState("")
     const [selfIntro, setSelfIntro] = useState("")
-    const [coordinate, setCoordinate] = useState([])
 
     const [nicknameFlag, setNicknameFlag] = useState(false)
     const [birthdayFlag, setBirthdayFlag] = useState(false)
@@ -55,7 +56,6 @@ export default function UserInfo({ pNumber, password, gender }) {
     }
 
     const handleBTypeChange = (value, flag) => {
-        console.log(value, flag)
         setBType(value)
         setBTypeFlag(!flag)
         setBtnFlag(nicknameFlag && birthdayFlag && addressFlag && tallFlag && !flag && salaryFlag)
@@ -129,11 +129,10 @@ export default function UserInfo({ pNumber, password, gender }) {
 
         try {
             const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${address}&key=${process.env.NEXT_PUBLIC_OPENCAGE_API_KEY}`)
-            console.log(response.data.results[0])
 
             const response1 = await axios.post('http://57.181.114.135:5000/auth/register', { phone, password, address, birthday: birthdayFormat, tall, bodyStyle: bType, salary, nickname, selfIntro, age, coordinate: [response.data.results[0].geometry.lat, response.data.results[0].geometry.lng], gender: gender, photo: "user.jpg" });
-            console.log(response1.data)
-            setCoordinate([response.data.results[0].geometry.lat, response.data.results[0].geometry.lng])
+            localStorage.setItem("phoneId", response1.data.newMember._id)
+            router.push('/Home')
         } catch (error) {
             console.log("Error", error)
         }
