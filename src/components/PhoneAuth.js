@@ -5,6 +5,7 @@ import axios from 'axios';
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/bootstrap.css";
 import { useRouter } from "next/navigation";
+import UserInfo from './UserInfo';
 
 export default function PhoneAuth() {
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -12,6 +13,7 @@ export default function PhoneAuth() {
     const [codeFlag, setCodeFlag] = useState(false);
     const [codeBtnFlag, setCodeBtnFlag] = useState(true);
     const [verificationId, setVerificationId] = useState('');
+    const [userInfoFlag, setUserInfoFlag] = useState(false);
     const [phoneFlag, setPhoneFlag] = useState(false)
     const [btnFlag, setBtnFlag] = useState(true)
 
@@ -87,6 +89,10 @@ export default function PhoneAuth() {
         setVerificationId("1111111");
     }
 
+    const handleUserInfo = () => {
+        setUserInfoFlag(true)
+    }
+
     const handleSend = async () => {
         const phone = "+" + phoneNumber
         const password = code
@@ -121,7 +127,7 @@ export default function PhoneAuth() {
 
 
             {/* Verification code input */}
-            {verificationId ? <div className='flex flex-col relative'>
+            {verificationId ? userInfoFlag ? <UserInfo pNumber={phoneNumber} password={code} /> : <div className='flex flex-col relative'>
                 <div className='flex flex-col relative gap-1'>
                     <label className="font-bold">パスワード</label>
                     <input
@@ -134,7 +140,7 @@ export default function PhoneAuth() {
                     {codeFlag ? <label className="absolute bottom-[-15px] text-[10px] text-[#f30707]">The password length is more than 8</label> : null}
 
                 </div>
-                {codeBtnFlag ? <button className='absolute top-[165px] bg-[#DFDFDF] rounded-md w-full py-2' >次へ</button> : <button className='absolute top-[165px] bg-[#FBB03B] rounded-md w-full py-2' onClick={handleSend}>次へ</button>}
+                {codeBtnFlag ? <button className='absolute top-[165px] bg-[#DFDFDF] rounded-md w-full py-2' >次へ</button> : <button className='absolute top-[165px] bg-[#FBB03B] rounded-md w-full py-2' onClick={handleUserInfo}>次へ</button>}
 
             </div> : null}
 
