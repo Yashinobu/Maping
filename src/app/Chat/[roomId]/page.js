@@ -1,14 +1,23 @@
 'use client'
 import Chat from "@/components/Chat";
 import Head from "next/head";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { ArrowLeftIcon } from '@heroicons/react/24/solid'
 
 const ChatPage = () => {
+
+    const router = useRouter()
+
     const params = useParams()
+
     if (!params.roomId) {
         return <div>Loading....</div>
     }
+
+    const handleGoSearch = () => {
+        router.push('/Search')
+    }
+
     return (
         <>
             <Head>
@@ -16,7 +25,7 @@ const ChatPage = () => {
             </Head>
             <main className="flex h-screen flex-col items-center bg-white pb-2 text-[#5C5F5D]">
                 <div className="fixed z-[100] h-[60px] bg-white w-full drop-shadow-lg border-b-solid border-b-[2px] border-b-[#00000029]">
-                    <ArrowLeftIcon className="absolute top-2 left-2" width={30} height={30} />
+                    <ArrowLeftIcon className="absolute top-2 left-2" width={30} height={30} onClick={handleGoSearch} />
                     <div className="flex place-content-center w-full gap-2">
                         <label className="text-[#5C5F5D] font-bold text-[25px] pt-2">恵</label>
                     </div>
