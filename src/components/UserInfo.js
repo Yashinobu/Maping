@@ -130,7 +130,7 @@ export default function UserInfo({ pNumber, password, gender }) {
         try {
             const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${address}&key=${process.env.NEXT_PUBLIC_OPENCAGE_API_KEY}`)
 
-            const response1 = await axios.post('http://57.181.114.135:5000/auth/register', { phone, password, address, birthday: birthdayFormat, tall, bodyStyle: bType, salary, nickname, selfIntro, age, coordinate: [response.data.results[0].geometry.lat, response.data.results[0].geometry.lng], gender: gender, photo: "user.jpg" });
+            const response1 = await axios.post('http://57.181.114.135:5000/auth/register', { phone, password, address, birthday: birthdayFormat, tall, bodyStyle: bType, salary, nickname, selfIntro, age, coordinate: [response.data.results[0].geometry.lat, response.data.results[0].geometry.lng], gender: gender, photo: "user_default.jpg" });
             localStorage.setItem("phoneId", response1.data.newMember._id)
             router.push('/Home')
         } catch (error) {
