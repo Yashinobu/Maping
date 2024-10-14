@@ -10,9 +10,11 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 
 const SearchResultMap = (Map) => {
+    const router = useRouter()
     const { zoom = 12, state, data, baseCoordinate, distance } = Map
 
     const [initialPosition, setInitialPosition] = useState(baseCoordinate);
@@ -28,19 +30,19 @@ const SearchResultMap = (Map) => {
         iconSize: [5, 5],
     })
 
+    const handlePrivateChat = (user1, user2) => {
+        let rommId = user1 > user2 ? user1 + user2 : user2 + user1
+        router.push(`/Chat/${rommId}`)
+    }
+
     const Markers = () => {
 
         return (
-            markers.map((marker, index) => <Marker key={marker.coordinate} position={marker.coordinate} icon={customIcon(marker.photo)}><Popup className="absolute bottom-0 bg-[#FFFF54] text-[#5C5C5C]">
-                <button className="flex w-[155px] h-[50px]">
-                    <Image src={"/" + marker.photo} alt={marker.name} width={50} height={50} />
-                    <div className="flex flex-col ml-[9px] items-start">
-                        <label>{marker.name}</label>
-                        <label>{marker.age}</label>
-                        <label>{marker.hobby}</label>
-                    </div>
+            markers.map((marker, index) => <Marker key={marker.coordinate} position={marker.coordinate} icon={customIcon(marker.photo)}><Popup className="absolute bottom-0 bg-[#FFFF54] rounded-lg text-[#5C5C5C]">
+                <button className="flex " onClick={() => handlePrivateChat(localStorage.getItem('phoneId'), marker._id)}>
+                    <label>Start Chatting</label>
                 </button>
-            </Popup></Marker>)
+            </Popup></Marker >)
         )
     }
     const fillBlueOptions = { fillColor: 'blue' }
