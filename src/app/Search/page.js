@@ -118,7 +118,7 @@ export default function Search() {
                             </select>
                         </div>
                     </div>
-                    <div className="w-full border-b-solid border-b-[#EEEEEE] border-b-[1px] h-[70px] px-5">
+                    {localStorage.getItem('gender') === "1" ? <div className="w-full border-b-solid border-b-[#EEEEEE] border-b-[1px] h-[70px] px-5">
                         <div className="flex justify-between gap-2 w-full">
                             <label className="text-[#5C5F5D] text-[14px] py-6">体型</label>
                             <select onChange={handleChangeBodyType} value={bodyType}>
@@ -129,7 +129,7 @@ export default function Search() {
                                 <option value={'flat1'}>太った</option>
                             </select>
                         </div>
-                    </div>
+                    </div> : null}
                     <div className="w-full border-b-solid border-b-[#EEEEEE] border-b-[1px] h-[70px] px-5">
                         <div className="flex justify-between gap-2 w-full">
                             <label className="text-[#5C5F5D] text-[14px] py-6">年収</label>

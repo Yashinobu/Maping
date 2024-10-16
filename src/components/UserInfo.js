@@ -1,13 +1,12 @@
-// components/PhoneAuth.js
 import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from "next/navigation";
 import Datepicker from "tailwind-datepicker-react"
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
-import TextInput from './TextInput';
 import NumberInput from './NumberInput';
 import SelectInput from './SelectInput';
 import TextAreaInput from './TextAreaInput';
+import TextNoValidationInput from './TextNoValidationInput';
 
 export default function UserInfo({ pNumber, password, gender }) {
 
@@ -27,7 +26,7 @@ export default function UserInfo({ pNumber, password, gender }) {
     const [addressFlag, setAddressFlag] = useState(false)
     const [tallFlag, setTallFlag] = useState(false)
     const [bTypeFlag, setBTypeFlag] = useState(false)
-    const [salaryFlag, setSalaryFlag] = useState(false)
+    const [salaryFlag, setSalaryFlag] = useState(gender === "1" ? true : false)
 
     const [btnFlag, setBtnFlag] = useState(false)
 
@@ -132,6 +131,7 @@ export default function UserInfo({ pNumber, password, gender }) {
 
             const response1 = await axios.post('http://57.181.114.135:5000/auth/register', { phone, password, address, birthday: birthdayFormat, tall, bodyStyle: bType, salary, nickname, selfIntro, age, coordinate: [response.data.results[0].geometry.lat, response.data.results[0].geometry.lng], gender: gender, photo: "user_default.jpg" });
             localStorage.setItem("phoneId", response1.data.newMember._id)
+            localStorage.setItem("gender", response1.data.newMember.gender)
             router.push('/Home')
         } catch (error) {
             console.log("Error", error)
@@ -145,10 +145,9 @@ export default function UserInfo({ pNumber, password, gender }) {
 
     return (
         <div>
-            <TextInput
+            <TextNoValidationInput
                 lableName={"ニックネーム"}
                 onChange={handleNicknameChange}
-                validateLength={4}
             />
             <div className='flex flex-col relative mt-4'>
                 <div className='flex flex-col relative gap-1'>
@@ -156,10 +155,9 @@ export default function UserInfo({ pNumber, password, gender }) {
                     <DemoComponent />
                 </div>
             </div>
-            <TextInput
+            <TextNoValidationInput
                 lableName={"地域"}
                 onChange={handleAddressChange}
-                validateLength={10}
                 cName={'mt-4 w-[70%]'}
             />
             <NumberInput
@@ -180,12 +178,11 @@ export default function UserInfo({ pNumber, password, gender }) {
                 ]}
                 cName={'mt-4 w-[70%]'}
             />
-            <NumberInput
+            {gender === "1" ? null : <NumberInput
                 lableName={"年収"}
                 onChange={handleSalaryChange}
                 min={0} max={Math.pow(10, 10)}
-                cName={'mt-4 w-[70%]'}
-            />
+                cName={'mt-4 w-[70%]'} />}
             <TextAreaInput
                 lableName={"自己紹介"}
                 cName={'mt-4'}

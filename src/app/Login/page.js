@@ -39,6 +39,7 @@ export default function Login() {
             alert(response.data.message)
             setResult({ flag: true, msg: 'Success!' })
             localStorage.setItem("phoneId", response.data.existingMember._id)
+            localStorage.setItem("gender", response.data.existingMember.gender)
 
             router.push('./Home')
         } catch (error) {
