@@ -18,7 +18,7 @@ export default function UserInfo({ pNumber, password, gender }) {
     const [address, setAddress] = useState("")
     const [tall, setTall] = useState("")
     const [bType, setBType] = useState("")
-    const [salary, setSalary] = useState("")
+    const [salary, setSalary] = useState(0)
     const [selfIntro, setSelfIntro] = useState("")
 
     const [nicknameFlag, setNicknameFlag] = useState(false)

@@ -118,7 +118,7 @@ export default function PhoneAuth({ gender }) {
                     {/* Recaptcha container */}
                     <div id="recaptcha-container" className='mt-2'></div>
                 </div>
-                {btnFlag ? <button className='absolute top-[165px] bg-[#DFDFDF] rounded-md w-full py-2'>次へ</button> : <button className='absolute top-[165px] bg-[#FBB03B] rounded-md w-full py-2' onClick={handleGoPass}>認証コードをおくる</button>}
+                {btnFlag ? <button className='absolute top-[165px] bg-[#DFDFDF] rounded-md w-full py-2'>次へ</button> : <button className='absolute top-[165px] bg-[#FBB03B] rounded-md w-full py-2' onClick={handleGoPass}>次へ</button>}
             </div>}
 
 
