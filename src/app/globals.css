@@ -36,6 +36,13 @@ body {
   width: 100% !important;
 }
 
+.PhoneInputInput {
+  border: solid 1px;
+  border-color: #cacaca;
+  padding: 3px 3px 3px 10px;
+  border-radius: 5px;
+}
+
 .nextjs-toast-errors-parent {
   display: none !important;
 }

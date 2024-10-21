@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { auth, RecaptchaVerifier, signInWithPhoneNumber, PhoneAuthProvider } from '../lib/firebase';
 import axios from 'axios';
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/bootstrap.css";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { useRouter } from "next/navigation";
 import UserInfo from './UserInfo';
 
@@ -41,7 +41,7 @@ export default function PhoneAuth({ gender }) {
     const sendCode = async () => {
         setupRecaptcha();
         try {
-            const pNumber = "+" + phoneNumber
+            const pNumber = phoneNumber
             const appVerifier = window.recaptchaVerifier;
             const confirmationResult = await signInWithPhoneNumber(auth, pNumber.trim(), appVerifier);
             setVerificationId(confirmationResult.verificationId);
@@ -72,8 +72,8 @@ export default function PhoneAuth({ gender }) {
     }
 
     const handlePhoneChange = (phone) => {
-        setPhoneFlag(phone.length <= 7 || phone.length > 15 ? true : false)
-        setBtnFlag(phone.length <= 7 || phone.length > 15 ? true : false)
+        setPhoneFlag(phone?.length <= 7 || phone?.length > 15 ? true : false)
+        setBtnFlag(phone?.length <= 7 || phone?.length > 15 ? true : false)
         setPhoneNumber(phone)
     }
 
@@ -92,7 +92,7 @@ export default function PhoneAuth({ gender }) {
     }
 
     const handleSend = async () => {
-        const phone = "+" + phoneNumber
+        const phone = phoneNumber
         const password = code
         try {
             const response = await axios.post('http://57.181.114.135:5000/auth/register', { phone, password });
@@ -109,8 +109,7 @@ export default function PhoneAuth({ gender }) {
                 <div className="flex flex-col relative gap-1">
                     <label className="font-bold">電話番号</label>
                     <PhoneInput
-                        country={"jp"}
-                        enableSearch={true}
+                        defaultCountry="JP"
                         value={phoneNumber}
                         onChange={(phone) => handlePhoneChange(phone)}
                     />

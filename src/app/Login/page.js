@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import Home from "@/components/Home";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/bootstrap.css";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
@@ -18,7 +18,7 @@ export default function Login() {
 
     const [passFlag, setPassFlag] = useState(false);
     const [phoneFlag, setPhoneFlag] = useState(false);
-    const [password, setPassword] = useState();
+    const [password, setPassword] = useState("");
     const [result, setResult] = useState({ flag: false, msg: 'information is incorrect' })
 
     const handlePasswordChange = (e) => {
@@ -27,12 +27,12 @@ export default function Login() {
     }
 
     const handlePhoneChange = (phone) => {
-        setPhoneFlag(phone.length <= 3 ? true : false)
+        setPhoneFlag(phone?.length === undefined ? true : false)
         setPhone(phone)
     }
 
     const handleLoginClick = async (phone, password) => {
-        const pNumber = "+" + phone
+        const pNumber = phone
         try {
             const response = await axios.post('http://57.181.114.135:5000/auth/login', { phone: pNumber, password: password });
             const { data } = response.data;
@@ -65,8 +65,7 @@ export default function Login() {
                     <div className="flex flex-col relative gap-1">
                         <label className="font-bold">電話番号</label>
                         <PhoneInput
-                            country={"jp"}
-                            enableSearch={true}
+                            defaultCountry="JP"
                             value={phone}
                             onChange={(phone) => handlePhoneChange(phone)}
                         />
