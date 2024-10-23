@@ -1,6 +1,7 @@
 import { Inter, Shippori_Mincho, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import ClientProvider from "@/components/ClientProviders";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${shippori_mincho.variable} ${noto_sans.variable}`}>
+        <ToastContainer />
         <ClientProvider>
           {children}
         </ClientProvider>

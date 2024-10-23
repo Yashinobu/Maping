@@ -7,6 +7,7 @@ import NumberInput from './NumberInput';
 import SelectInput from './SelectInput';
 import TextAreaInput from './TextAreaInput';
 import TextNoValidationInput from './TextNoValidationInput';
+import Toast from './Toast';
 
 export default function UserInfo({ pNumber, password, gender }) {
 
@@ -124,17 +125,19 @@ export default function UserInfo({ pNumber, password, gender }) {
 
     const convertAddressToCoordinate = async () => {
         const age = new Date().getFullYear() - parseInt(birthdayFormat.split("-")[0])
-        const phone = "+" + pNumber
+        const phone = pNumber
 
         try {
             const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${address}&key=${process.env.NEXT_PUBLIC_OPENCAGE_API_KEY}`)
 
             const response1 = await axios.post('http://57.181.114.135:5000/auth/register', { phone, password, address, birthday: birthdayFormat, tall, bodyStyle: bType, salary, nickname, selfIntro, age, coordinate: [response.data.results[0].geometry.lat, response.data.results[0].geometry.lng], gender: gender, photo: "user_default.jpg" });
+            Toast("success", response1.data.message)
             localStorage.setItem("phoneId", response1.data.newMember._id)
             localStorage.setItem("gender", response1.data.newMember.gender)
             router.push('/Home')
         } catch (error) {
             console.log("Error", error)
+            Toast("error", error.response.data.error)
         }
 
     }

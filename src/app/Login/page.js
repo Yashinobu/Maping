@@ -1,13 +1,12 @@
 'use client'
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
-import Home from "@/components/Home";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Toast from "@/components/Toast";
 
 export default function Login() {
 
@@ -34,9 +33,10 @@ export default function Login() {
     const handleLoginClick = async (phone, password) => {
         const pNumber = phone
         try {
+
             const response = await axios.post('http://57.181.114.135:5000/auth/login', { phone: pNumber, password: password });
             const { data } = response.data;
-            alert(response.data.message)
+            Toast("success", response.data.message)
             setResult({ flag: true, msg: 'Success!' })
             localStorage.setItem("phoneId", response.data.existingMember._id)
             localStorage.setItem("gender", response.data.existingMember.gender)
@@ -44,7 +44,7 @@ export default function Login() {
             router.push('./Home')
         } catch (error) {
             console.log("Error: ", error)
-            alert(error.response.data.error)
+            Toast("error", error.response.data.error)
         }
     }
 
